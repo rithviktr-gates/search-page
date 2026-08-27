@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="uploads/1606188161586-GATES_349x253_G492.jpg" data-resource-id="adGigabyte" />
+<meta name="ext-resource-dependency" content="uploads/1621497307389-e-banner.jpg" data-resource-id="adAver" />
+<template id="__bundler_thumbnail" data-bg-color="#F3F3F1">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#F3F3F1"/>
+    <text x="100" y="120" font-family="Arial, sans-serif" font-size="64" font-weight="800" font-style="italic" fill="#DD1A22" text-anchor="middle">connect</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  @keyframes bannerCycle { 0%{opacity:1} 45%{opacity:1} 50%{opacity:0} 95%{opacity:0} 100%{opacity:1} }
+  @keyframes caFade { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes caRise { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: none } }
+  input, textarea { font-family: 'Plus Jakarta Sans', sans-serif; }
+  textarea { resize: none; }
+  a { color: #DD1A22; text-decoration: none; }
+  a:hover { color: #B8121A; text-decoration: underline; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#F3F3F1;font-family:'Plus Jakarta Sans',sans-serif">
+
+  <!-- ===== TOP NAV ===== -->
+  <div style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #E7E8EA;display:flex;align-items:center;justify-content:space-between;padding:8px 28px 0;height:64px;gap:22px;min-width:1260px">
+    <div style="display:flex;align-items:center;gap:22px;flex:none">
+      <img src="uploads/connect-red.png" alt="Connect" style="height:28px;width:auto;display:block">
+      <div style="display:flex;align-items:center;gap:10px;background:#F1F2F5;border:1px solid #E2E4E9;border-radius:999px;padding:10px 18px;width:290px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" style="flex:none"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5" stroke-linecap="round"></line></svg>
+        <span style="font-size:15px;color:#8A93A2;font-weight:500">Search</span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:6px;flex:none;justify-content:center;height:100%">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;position:relative;padding:0 16px;height:100%;border-bottom:2.5px solid #E6334C">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3l9 7.6"></path><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"></path></svg>
+        <span style="font-size:13px;font-weight:700;color:#16202E">Home</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+        <div style="position:relative">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M16.2 14a5.2 5.2 0 0 1 4.8 6"></path></svg>
+          <span style="position:absolute;top:-5px;right:-6px;min-width:14px;height:14px;border-radius:7px;background:#E6334C;color:#fff;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 2px;border:1.5px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.12)">1</span>
+        </div>
+        <span style="font-size:13px;font-weight:600;color:#5B6675">Network</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;position:relative;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l6 6v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"></path><path d="M14 3v6h6"></path><line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line><line x1="8.5" y1="17.5" x2="13" y2="17.5"></line></svg>
+        <span style="font-size:13px;font-weight:600;color:#5B6675">Membership</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+        <div style="position:relative">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path><line x1="8" y1="11" x2="16" y2="11"></line><line x1="8" y1="14.5" x2="13" y2="14.5"></line></svg>
+          <span style="position:absolute;top:-5px;right:-4px;min-width:14px;height:14px;border-radius:7px;background:#E6334C;color:#fff;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 2px;border:1.5px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.12)">0</span>
+        </div>
+        <span style="font-size:13px;font-weight:600;color:#5B6675">Messages</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;position:relative;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"></rect><line x1="3.5" y1="10" x2="20.5" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
+        <span style="font-size:13px;font-weight:600;color:#5B6675">Events</span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:26px;flex:none;padding-left:26px;border-left:1px solid #E7E8EA">
+      <div style="position:relative">
+        <div onClick="{{ menuToggle.notif }}" style="cursor:pointer;position:relative;display:flex">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 1 0-12 0c0 6.5-3 8.5-3 8.5h18s-3-2-3-8.5"></path><path d="M13.7 20.5a2 2 0 0 1-3.4 0"></path></svg>
+          <span style="position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;border-radius:8px;background:#E6334C;color:#fff;font-size:9.5px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 3px;border:1.5px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.15)">3</span>
+        </div>
+
+        <sc-if value="{{ menuOpen.notif }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:38px;right:-14px;width:396px;background:#fff;border:1px solid #E7E8EA;border-radius:12px;box-shadow:0 24px 48px -12px rgba(22,32,46,.26);z-index:60;overflow:hidden">
+            <div style="position:absolute;top:-6px;right:20px;width:11px;height:11px;background:#fff;border-left:1px solid #E7E8EA;border-top:1px solid #E7E8EA;transform:rotate(45deg)"></div>
+
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px 14px">
+              <div style="display:flex;align-items:center;gap:9px">
+                <span style="font-size:15.5px;font-weight:800;color:#16202E">Notifications</span>
+                <span style="font-size:11px;font-weight:800;color:#fff;background:#E6334C;border-radius:999px;padding:2px 7px">3 new</span>
+              </div>
+              <span style="font-size:13px;font-weight:700;color:#0A58CA;cursor:pointer">Mark all read</span>
+            </div>
+
+            <div style="display:flex;gap:6px;padding:0 18px 14px">
+              <sc-for list="{{ notifTabs }}" as="t" hint-placeholder-count="3">
+                <div onClick="{{ t.onPick }}" style="display:flex;align-items:center;gap:6px;border-radius:999px;padding:6px 12px;cursor:pointer;{{ t.style }}">
+                  <span style="font-size:12.5px;font-weight:700">{{ t.label }}</span>
+                  <span style="font-size:11px;font-weight:800;opacity:.72">{{ t.count }}</span>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="max-height:430px;overflow-y:auto;border-top:1px solid #F1F2F4">
+              <sc-for list="{{ notifGroups }}" as="g" hint-placeholder-count="3">
+                <div style="border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 18px 9px">
+                    <span style="font-size:11px;font-weight:800;color:#8A93A2;letter-spacing:.08em;text-transform:uppercase">{{ g.title }}</span>
+                    <sc-if value="{{ g.hasItems }}" hint-placeholder-val="{{ true }}">
+                      <span style="font-size:12.5px;font-weight:700;color:#0A58CA;cursor:pointer">Show all</span>
+                    </sc-if>
+                  </div>
+
+                  <sc-if value="{{ g.isEmpty }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;align-items:center;gap:9px;padding:2px 18px 15px">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B7C3D0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                      <span style="font-size:13px;font-weight:600;color:#9AA1AE">All caught up</span>
+                    </div>
+                  </sc-if>
+
+                  <sc-for list="{{ g.items }}" as="n" hint-placeholder-count="2">
+                    <div style="display:flex;align-items:flex-start;gap:12px;padding:11px 18px 14px;cursor:pointer;{{ n.rowBg }}">
+                      <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex:none;background:{{ n.color }};display:flex;align-items:center;justify-content:center">
+                        <sc-if value="{{ n.photo }}" hint-placeholder-val="{{ false }}"><img src="{{ n.photo }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+                        <sc-if value="{{ n.showInitials }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;font-weight:800;color:#fff">{{ n.initials }}</span></sc-if>
+                      </div>
+                      <div style="flex:1;min-width:0">
+                        <div style="font-size:14px;color:#414B5A;line-height:1.45"><span style="font-weight:800;color:#16202E">{{ n.name }}</span> {{ n.text }}</div>
+                        <div style="font-size:12px;font-weight:600;color:#9AA1AE;margin-top:4px">{{ n.time }}</div>
+                        <sc-if value="{{ n.actionable }}" hint-placeholder-val="{{ false }}">
+                          <div style="display:flex;gap:8px;margin-top:10px">
+                            <div style="display:flex;align-items:center;justify-content:center;background:#0A58CA;border-radius:8px;padding:8px 16px;cursor:pointer"><span style="font-size:12.5px;font-weight:800;color:#fff">Accept</span></div>
+                            <div style="display:flex;align-items:center;justify-content:center;background:#EFF1F4;border-radius:8px;padding:8px 16px;cursor:pointer"><span style="font-size:12.5px;font-weight:800;color:#16202E">Ignore</span></div>
+                          </div>
+                        </sc-if>
+                      </div>
+                      <sc-if value="{{ n.unread }}" hint-placeholder-val="{{ true }}">
+                        <div style="width:8px;height:8px;border-radius:50%;background:#0A58CA;flex:none;margin-top:6px"></div>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="padding:12px 18px 14px">
+              <div style="display:flex;align-items:center;justify-content:center;gap:7px;background:#F1F2F5;border-radius:8px;padding:11px 0;cursor:pointer">
+                <span style="font-size:13.5px;font-weight:800;color:#16202E">View all notifications</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display:flex;align-items:center;gap:11px;cursor:pointer">
+        <div style="width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+        <div style="display:flex;align-items:center;gap:5px">
+          <span style="font-size:14.5px;font-weight:700;color:#16202E;line-height:1.2">Ashish Kapahi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BANNER ===== -->
+  <div style="max-width:1280px;min-width:1260px;margin:0 auto;padding:24px 24px 0">
+    <div style="height:300px;border-radius:10px;overflow:hidden;position:relative;background:#16202E">
+      <img src="uploads/GATES-Southeast-Asia-2026-banner (1).png" alt="GATES Southeast Asia 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;animation:bannerCycle 8s ease-in-out infinite;animation-delay:0s">
+      <img src="uploads/Untitled design (21).png" alt="GATES stage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;animation:bannerCycle 8s ease-in-out infinite;animation-delay:4s">
+      <div style="position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:8px">
+        <div style="width:22px;height:4px;border-radius:2px;background:#fff"></div>
+        <div style="width:22px;height:4px;border-radius:2px;background:rgba(255,255,255,.45)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN GRID ===== -->
+  <div style="max-width:1280px;min-width:1260px;margin:0 auto;padding:20px 24px 90px;display:grid;grid-template-columns:230px minmax(560px,1fr) 270px;gap:24px">
+
+    <!-- ===== LEFT COLUMN ===== -->
+    <div style="display:flex;flex-direction:column;gap:16px;align-self:start">
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;overflow:hidden">
+        <div style="height:96px;overflow:hidden"><img src="images/keynote.png" alt="GATES banner" style="width:100%;height:100%;object-fit:cover;object-position:80% 15%;display:block"></div>
+        <div style="padding:0 22px">
+          <div style="width:76px;height:76px;border-radius:50%;overflow:hidden;flex:none;background:#243B53;border:4px solid #fff;margin-top:-38px"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:12px">
+            <span style="font-size:18px;font-weight:800;color:#16202E;line-height:1.2">Ashish Kapahi</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#E6334C"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5z"></path><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="font-size:14.5px;color:#414B5A;font-weight:600;margin-top:3px">CEO & Executive Director @Gates</div>
+          <div style="font-size:13.5px;color:#8A93A2;font-weight:500;margin-top:2px">Singapore</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:9px;padding:14px 22px;margin-top:6px;background:#F7F7F5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"></rect><path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"></path></svg>
+          <span style="font-size:14px;color:#16202E;font-weight:800">Vendor</span>
+        </div>
+
+        <div style="padding:18px 22px 22px">
+        <div style="font-size:15px;font-weight:800;color:#16202E">About</div>
+        <div style="font-size:14px;color:#414B5A;line-height:1.55;margin-top:8px">Product lead driving GTM strategy across the Southeast Asia partner channel. I work with distributors, resellers and ISVs to turn capability into outcomes customers actually buy.</div>
+        <sc-if value="{{ aboutOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:14px;color:#414B5A;line-height:1.55;margin-top:10px">Fourteen years in the regional channel, most of it spent between distributor floors and vendor roadmap reviews. Before Connect I ran partner programmes across Indonesia, Malaysia and Vietnam, where the work was less about pricing sheets and more about helping teams sell an outcome they could actually deliver.</div>
+          <div style="font-size:14px;color:#414B5A;line-height:1.55;margin-top:10px">Currently focused on enablement that survives contact with a live quarter: shorter certification loops, shared account plans, and renewal conversations that start twelve months out. Based in Singapore, on the road most of the summit season.</div>
+        </sc-if>
+        <a href="#" onClick="{{ toggleAbout }}" style="display:inline-block;font-size:14px;font-weight:800;color:#16202E;margin-top:6px;text-decoration:none;cursor:pointer">{{ aboutLabel }}</a>
+
+        <div style="display:flex;align-items:center;justify-content:center;background:#E6334C;border-radius:8px;padding:11px 0;margin-top:18px;cursor:pointer">
+          <span style="font-size:13.5px;font-weight:800;color:#fff">Invite to Connect</span>
+        </div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:18px 0;display:flex;align-items:center">
+        <div style="flex:1;text-align:center">
+          <div style="font-size:22px;font-weight:800;color:#16202E">9</div>
+          <div style="font-size:13px;color:#8A93A2;font-weight:600;margin-top:2px">Contacts</div>
+        </div>
+        <div style="width:1px;height:34px;background:#ECEDF0"></div>
+        <div style="flex:1;text-align:center">
+          <div style="font-size:22px;font-weight:800;color:#16202E">6</div>
+          <div style="font-size:13px;color:#8A93A2;font-weight:600;margin-top:2px">Posts</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:8px 22px;display:flex;flex-direction:column">
+        <div style="font-size:15px;font-weight:800;color:#16202E;padding:12px 0">Manage</div>
+        <div style="height:1px;background:#EDEEF1"></div>
+        <div style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path><path d="M3 21v-5h5"></path></svg>
+          <span style="font-size:14.5px;font-weight:600;color:#414B5A">Draft</span>
+        </div>
+        <div onClick="{{ openCompose }}" style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"></path><line x1="8" y1="12" x2="16" y2="12"></line><line x1="8" y1="16" x2="13" y2="16"></line></svg>
+          <span style="font-size:14.5px;font-weight:600;color:#414B5A">Article</span>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:8px 22px;display:flex;flex-direction:column">
+        <div style="font-size:15px;font-weight:800;color:#16202E;padding:12px 0">Personal</div>
+        <div style="height:1px;background:#EDEEF1"></div>
+        <div style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="2.6"></circle><path d="M6.5 18a6 6 0 0 1 11 0"></path></svg>
+          <span style="font-size:14.5px;font-weight:600;color:#414B5A">Who Viewed Your Profile</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.9"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19.5a5.5 5.5 0 0 1 11 0"></path><circle cx="17" cy="9" r="2.4"></circle><path d="M16 14a4.6 4.6 0 0 1 4.3 5.5"></path></svg>
+          <span style="font-size:14.5px;font-weight:600;color:#414B5A">Group</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2.4"></rect><line x1="10" y1="19" x2="14" y2="19"></line></svg>
+          <span style="font-size:14.5px;font-weight:600;color:#414B5A">Survey</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:11px;padding:13px 0 15px;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2" stroke-linecap="round"></path></svg>
+          <span style="font-size:14.5px;font-weight:600;color:#414B5A">Reports</span>
+        </div>
+      </div>
+
+      <div style="padding:6px 8px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="#" style="font-size:12.5px;color:#9AA1AE;font-weight:600">Feedback</a>
+          <a href="#" style="font-size:12.5px;color:#9AA1AE;font-weight:600">Trademarks</a>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="#" style="font-size:12.5px;color:#9AA1AE;font-weight:600">Privacy Policy</a>
+          <a href="#" style="font-size:12.5px;color:#9AA1AE;font-weight:600">Terms &amp; Conditions</a>
+        </div>
+        <a href="#" style="font-size:12.5px;color:#9AA1AE;font-weight:600">Corporate site</a>
+        <div style="font-size:12px;color:#B7BAC1;font-weight:600">© Connect 2026</div>
+      </div>
+    </div>
+
+    <!-- ===== CENTER COLUMN ===== -->
+    <div style="display:flex;flex-direction:column;gap:16px;min-width:0;align-self:start">
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:18px 20px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+          <div onClick="{{ openCompose }}" style="flex:1;background:#F1F2F5;border-radius:999px;padding:14px 20px;font-size:15.5px;color:#9AA1AE;font-weight:500;cursor:pointer">Share an update…</div>
+        </div>
+      </div>
+
+      <sc-if value="{{ caHasPosted }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff;border:1px solid #D6E4F5;border-radius:10px;padding:22px 22px 8px;box-shadow:0 12px 26px -18px rgba(10,88,202,.5);animation:caRise .28s ease">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+            <span style="font-size:11px;font-weight:800;color:#0A58CA;background:#EAF1FC;border-radius:999px;padding:4px 10px;letter-spacing:.06em;text-transform:uppercase">Just published</span>
+            <span style="font-size:13px;font-weight:600;color:#8A93A2">{{ caPostedMeta }}</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:13px">
+            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2">Ashish Kapahi</div>
+              <div style="font-size:13.5px;color:#8A93A2;font-weight:500;margin-top:3px">Just now · Product Manager, GATES</div>
+            </div>
+          </div>
+          <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">{{ caPostedTitle }}</div>
+          <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">{{ caPostedBody }}</div>
+          <sc-if value="{{ caPostedHasImgs }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:16px -22px 0;display:grid;gap:3px;overflow:hidden;{{ caPostedGrid }}">
+              <sc-for list="{{ caPostedTiles }}" as="t" hint-placeholder-count="4">
+                <div style="position:relative;overflow:hidden;background:#E9ECF0;{{ t.area }}">
+                  <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;display:block;{{ t.fit }}"></sc-if>
+                  <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                      <span style="font-size:28px;font-weight:800;color:#fff">{{ t.moreLabel }}</span>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">0 likes</span>
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">{{ caPostedCategory }}</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- POST 1 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Ashish Kapahi</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">24 May 2026 · 07:23 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p1 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p1 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Scaling the Enterprise Channel across Southeast Asia</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">The channel was once built to move technology. Now it has to make technology make sense — translating capability into the outcomes customers actually buy. … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px -22px 0;height:320px;overflow:hidden"><img src="images/keynote.png" alt="event keynote" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <div style="display:flex;align-items:center;gap:9px">
+            <div style="width:23px;height:23px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg>
+            </div>
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">2</span>
+          </div>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">0 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#6B3651"><img src="images/minu.png" alt="Minu Sirsalewala" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Minu Sirsalewala</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">27 May 2026 · 07:15 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p2 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p2 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Field enablement that actually sticks</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Most playbooks die in the inbox. The teams that win treat enablement like a product — shipped in small loops, measured on usage. … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <div style="display:flex;align-items:center;gap:9px">
+            <div style="width:23px;height:23px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg>
+            </div>
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">5</span>
+          </div>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">1 comment</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- FEATURED VENDORS STRIP -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2.2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3.4"></circle></svg>
+          <span style="font-size:16px;font-weight:800;color:#16202E">Featured Vendors</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:stretch">
+        <sc-for list="{{ vendors }}" as="v" hint-placeholder-count="3">
+          <div style="flex:1;min-width:0;border:1.6px solid #E6334C;border-radius:8px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="height:64px;flex:none;background:{{ v.color }};display:flex;align-items:center;justify-content:center">
+              <div style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:{{ v.color }}">{{ v.initials }}</div>
+            </div>
+            <div style="padding:14px 14px 18px">
+              <div style="font-size:14.5px;font-weight:800;color:#16202E">{{ v.name }}</div>
+              <div style="font-size:12.5px;color:#8A93A2;font-weight:600;margin-top:2px">{{ v.location }}</div>
+              <div style="font-size:12.5px;color:#414B5A;font-weight:500;margin-top:8px;line-height:1.4">{{ v.blurb }}</div>
+            </div>
+          </div>
+        </sc-for>
+        </div>
+      </div>
+
+      <!-- POST 2b · MULTI-IMAGE (6 sources, mixed dimensions) -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Ashish Kapahi</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">28 May 2026 · 09:04 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.pm1 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.pm1 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;gap:9px;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M12 15V3"></path><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Download all</span></div>
+                <div style="display:flex;align-items:center;gap:9px;padding:12px 15px;cursor:pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Three days at GATES Southeast Asia 2026</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Six frames straight off the camera roll — a 9:16 portrait, a 2.6:1 banner, two squares and a pair of landscapes. The grid normalises all of them into one block.</div>
+        <div style="margin:16px -22px 0;display:grid;gap:3px;overflow:hidden;{{ mA }}">
+          <sc-for list="{{ mATiles }}" as="t" hint-placeholder-count="4">
+            <div onClick="{{ t.onOpen }}" style="position:relative;overflow:hidden;background:#E9ECF0;cursor:pointer;{{ t.area }}">
+              <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+              <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                  <span style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-.01em">{{ t.moreLabel }}</span>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <div style="display:flex;align-items:center;gap:9px">
+            <div style="width:23px;height:23px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg>
+            </div>
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">48</span>
+          </div>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">6 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 2c · MULTI-IMAGE (3 sources, hero + stack) -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#6B3651"><img src="images/minu.png" alt="Minu Sirsalewala" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Minu Sirsalewala</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">28 May 2026 · 08:12 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.pm2 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Distributor roundtable, in three shots</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Three images: hero on the left across two thirds, the other two stacked on the right. Every tile crops from the centre, so aspect mismatches never leave gaps.</div>
+        <div style="margin:16px -22px 0;display:grid;gap:3px;overflow:hidden;{{ mB }}">
+          <sc-for list="{{ mBTiles }}" as="t" hint-placeholder-count="3">
+            <div onClick="{{ t.onOpen }}" style="position:relative;overflow:hidden;background:#E9ECF0;cursor:pointer;{{ t.area }}">
+              <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <div style="display:flex;align-items:center;gap:9px">
+            <div style="width:23px;height:23px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg>
+            </div>
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">17</span>
+          </div>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">2 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 3 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#5B6675;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">PN</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Priya Nair</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">19 May 2026 · 09:40 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p3 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p3 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Why regional partners are rewriting the enablement playbook</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+          <span style="font-size:13px;color:#8A93A2;font-weight:600">CONNECT · Asia's Independent Tech Channel Platform</span>
+        </div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Distributors and resellers across the region are no longer measured on volume alone. The partners pulling ahead are the ones packaging expertise, not just product … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px 0 0;min-height:180px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#16202E,#2C3A4E);display:flex;align-items:center;padding:28px">
+          <div style="font-size:19px;font-weight:700;color:#fff;line-height:1.45;max-width:70%">Packaging expertise is the new differentiator for channel partners.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <div style="display:flex;align-items:center;gap:9px">
+            <span style="font-size:14.5px;color:#8A93A2;font-weight:600">0 likes</span>
+          </div>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">3 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 4 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">MT</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Marcus Tan</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">14 May 2026 · 02:10 PM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p4 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p4 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Partner enablement metrics that actually predict revenue</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Certification counts and portal logins look good on a dashboard, but they rarely move deals. The metric that correlates with revenue is time-to-first-qualified-deal after enablement … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">3 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">2 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 5 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#3D5A47;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">FI</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Farah Ismail</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">10 May 2026 · 11:05 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p5 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p5 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Recap: Bali workshop on multi-cloud reselling</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Great turnout at the Dome room session today. Three distributors walked through how they're bundling backup, security and monitoring into a single line item … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px -22px 0;height:260px;overflow:hidden"><img src="images/keynote.png" alt="workshop session" style="width:100%;height:100%;object-fit:cover;object-position:20% 40%;display:block"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">7 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">4 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 6 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#8A5A2B;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">DA</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">David Alcantara</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">6 May 2026 · 08:52 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p6 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p6 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Distributors, stop selling SKUs. Start selling roadmaps.</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+          <span style="font-size:13px;color:#8A93A2;font-weight:600">CONNECT · Asia's Independent Tech Channel Platform</span>
+        </div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">The distributors growing fastest this year are the ones that show up to renewal conversations with a 12-month plan, not a quote. Product knowledge has become table stakes … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px 0 0;min-height:150px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#E6334C,#8A2436);display:flex;align-items:center;padding:26px">
+          <div style="font-size:18px;font-weight:700;color:#fff;line-height:1.45;max-width:72%">A roadmap conversation renews. A quote just refills a quota.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">6 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">1 comment</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 7 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#4A3B6B;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">HY</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Hana Yusof</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">2 May 2026 · 05:30 PM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p7 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p7 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Registration for the closing gala is now open</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Join us at the Kharisma ballroom on 10 July for the closing dinner and channel awards. Limited seating — confirm through the Events tab by 5 July … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">11 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">5 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 8 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#5B6675;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">SB</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Sanjay Bhatt</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">29 Apr 2026 · 10:18 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p8 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p8 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Edge deployments are quietly becoming the reseller's biggest margin lever</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Customers are done shipping raw data to the cloud for every workload. The resellers capturing the fattest margins right now are the ones who can size, deploy and support edge hardware on-site … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">9 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">2 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 9 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#6B3651;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">WG</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Wei Lin Goh</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">25 Apr 2026 · 03:47 PM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p9 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p9 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Live from the Kharisma stage: platform architecture panel</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Three CTOs just wrapped a panel on multi-tenant architecture for regional ISVs. Slides and a recap will be posted here once available … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px -22px 0;height:260px;overflow:hidden"><img src="images/keynote.png" alt="panel stage" style="width:100%;height:100%;object-fit:cover;object-position:85% 30%;display:block"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">14 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">6 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 10 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#8A5A2B;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">DA</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">David Alcantara</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">21 Apr 2026 · 09:02 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p10 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p10 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">5 questions to ask before you sign a new distribution agreement</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+          <span style="font-size:13px;color:#8A93A2;font-weight:600">CONNECT · Asia's Independent Tech Channel Platform</span>
+        </div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Territory exclusivity, minimum commitments, and who owns the renewal conversation — the fine print decides whether a distribution deal compounds or quietly drains margin … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px 0 0;min-height:150px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#16202E,#3A2C4E);display:flex;align-items:center;padding:26px">
+          <div style="font-size:18px;font-weight:700;color:#fff;line-height:1.45;max-width:72%">The fine print decides whether a deal compounds or drains margin.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">5 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">2 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 11 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#2E5A6B;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">RK</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Ravi Krishnan</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">17 Apr 2026 · 01:35 PM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p11 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p11 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">What ISVs get wrong about channel-led growth</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Most ISVs treat the channel as a distribution afterthought bolted onto a direct-sales motion. The ones scaling fastest built co-selling into the product from day one … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">8 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">3 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 12 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">MT</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Marcus Tan</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">13 Apr 2026 · 08:20 AM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p12 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p12 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Final agenda for Day 2 is live</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Check the Workshops tab for the updated room assignments — the multi-cloud session moved to Kharisma, and we added a second 1-on-1 block in the afternoon … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">4 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">1 comment</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 13 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#7A4A2B;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">NO</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Nadia Osman</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">9 Apr 2026 · 04:55 PM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p13 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p13 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Full house at the Arjuna Room breakout</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Standing room only for the pricing-strategy roundtable. Great questions from the distributor tables on bundling services with hardware margins … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="margin:16px -22px 0;height:260px;overflow:hidden"><img src="images/keynote.png" alt="Arjuna Room breakout" style="width:100%;height:100%;object-fit:cover;object-position:55% 10%;display:block"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">10 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">2 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+      <!-- POST 14 -->
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 22px 8px">
+        <div style="display:flex;align-items:flex-start;gap:13px">
+          <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#4A3B6B;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff">HY</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Hana Yusof</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13.5px;color:#8A93A2;font-weight:500">5 Apr 2026 · 06:40 PM ·
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;background:#EFF1F4;border-radius:8px;padding:8px 15px;flex:none;white-space:nowrap;cursor:pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+          </div>
+          <div style="position:relative;flex:none;margin-left:6px">
+            <div style="width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer" onClick="{{ menuToggle.p14 }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#8A93A2"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg>
+            </div>
+            <sc-if value="{{ menuOpen.p14 }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:34px;right:0;background:#fff;border-radius:10px;box-shadow:0 16px 32px -8px rgba(22,32,46,.22);border:1px solid #ECEDF0;width:172px;z-index:30;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><line x1="3" y1="3" x2="21" y2="21"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Hide</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer;border-bottom:1px solid #F1F2F4">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"></line></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Block</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 15px;cursor:pointer">
+                  <div style="display:flex;align-items:center;gap:9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#414B5A" stroke-width="1.8"><path d="M5 21V4"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span style="font-size:13.5px;font-weight:700;color:#16202E">Report</span></div>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7BAC1" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;line-height:1.25;margin-top:16px">Post-summit survey: tell us what worked</div>
+        <div style="font-size:15px;color:#414B5A;line-height:1.6;margin-top:10px">Two minutes, five questions. Your answers shape next year's session lineup and the 1-on-1 matching algorithm — link is in the Survey tab under Personal … <span style="font-weight:800;color:#16202E;cursor:pointer">View more</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px">
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">3 likes</span>
+          <span style="font-size:14.5px;color:#8A93A2;font-weight:600">0 comments</span>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:0 -22px"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 18px;cursor:pointer"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14.5px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== RIGHT COLUMN ===== -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;overflow:hidden">
+        <div style="padding:16px 18px 12px;font-size:15px;font-weight:800;color:#16202E">Featured Vendor</div>
+        <sc-for list="{{ vendorAds }}" as="ad" hint-placeholder-count="2">
+          <div style="border-top:1px solid #EDEEF1;padding:16px 18px 18px">
+            <div style="border-radius:8px;overflow:hidden;cursor:pointer">
+              <img src="{{ ad.image }}" alt="{{ ad.brand }}" style="width:100%;height:150px;object-fit:cover;display:block">
+            </div>
+            <div style="display:flex;align-items:center;gap:18px;margin-top:12px">
+              <div style="display:flex;align-items:center;gap:6px;cursor:pointer">
+                <div style="width:22px;height:22px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg>
+                </div>
+                <span style="font-size:13px;color:#8A93A2;font-weight:600">{{ ad.likes }}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;cursor:pointer">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V6.5a1.5 1.5 0 0 1 3 0V12"></path><path d="M11 12V4.5a1.5 1.5 0 0 1 3 0V12"></path><path d="M14 12V5.5a1.5 1.5 0 0 1 3 0V13"></path><path d="M17 13.5V8.5a1.5 1.5 0 0 1 3 0v6.5c0 3.5-2.5 6-6 6h-2c-2.2 0-3.4-.8-4.5-2.3L4.8 14a1.4 1.4 0 0 1 2.2-1.7l1 1.1"></path></svg>
+                <span style="font-size:13px;color:#8A93A2;font-weight:600">{{ ad.claps }}</span>
+              </div>
+              <a href="#" style="font-size:13px;font-weight:700;margin-left:auto">Know more</a>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:18px 4px 10px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:9px;padding:0 18px;margin-bottom:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17.2" cy="9" r="2.6"></circle><path d="M16 14.3a4.8 4.8 0 0 1 4.5 5.7"></path></svg>
+          <span style="font-size:15px;font-weight:800;color:#16202E">People you may know</span>
+        </div>
+        <sc-for list="{{ people }}" as="p" hint-placeholder-count="6">
+          <div style="padding:16px 18px;border-top:1px solid #F1F2F4">
+            <div style="display:flex;align-items:center;gap:13px">
+              <div style="width:50px;height:50px;border-radius:50%;background:{{ p.color }};display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex:none">{{ p.initials }}</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:15px;font-weight:800;color:#16202E;line-height:1.3">{{ p.name }}</div>
+                <div style="font-size:13px;color:#414B5A;font-weight:600;margin-top:3px;line-height:1.4">{{ p.role }}</div>
+                <div style="font-size:12.5px;color:#8A93A2;font-weight:600;margin-top:1px;line-height:1.4">{{ p.company }}</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:6px;background:#0A58CA;border-radius:8px;padding:10px 0;margin-top:12px;font-size:13px;font-weight:800;color:#fff;cursor:pointer">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Connect
+            </div>
+          </div>
+        </sc-for>
+        <div style="padding:12px 18px 6px">
+          <div style="display:flex;align-items:center;justify-content:center;background:#F7F1F1;border-radius:8px;padding:11px 0;cursor:pointer">
+            <span style="font-size:14px;font-weight:800;color:#E6334C">View All</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:sticky;top:80px;background:#fff;border:1px solid #ECEDF0;border-radius:10px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:8px;padding:14px 18px 10px">
+          <span style="font-size:11px;font-weight:800;color:#8A93A2;letter-spacing:.06em;text-transform:uppercase">Promoted</span>
+        </div>
+        <div style="height:150px;overflow:hidden"><img src="images/keynote.png" alt="GATES Enterprise Channel Summit" style="width:100%;height:100%;object-fit:cover;object-position:70% 20%;display:block"></div>
+        <div style="padding:16px 18px 18px">
+          <div style="font-size:16px;font-weight:800;color:#16202E;line-height:1.3">GATES Enterprise Channel Summit</div>
+          <div style="font-size:13px;color:#8A93A2;font-weight:600;margin-top:4px">Southeast Asia 2026 · 08–10 July</div>
+          <div style="font-size:13px;color:#8A93A2;font-weight:600;margin-top:1px">Discovery Kartika Plaza, Bali</div>
+          <div style="font-size:13.5px;color:#414B5A;font-weight:500;line-height:1.5;margin-top:10px">Meet distributors, resellers and ISVs shaping the region's channel — three days of workshops, 1-on-1s and the closing gala.</div>
+          <div style="display:flex;align-items:center;justify-content:center;background:#E6334C;border-radius:8px;padding:11px 0;margin-top:14px;cursor:pointer">
+            <span style="font-size:13.5px;font-weight:800;color:#fff">Register Now</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FAB -->
+  <div onClick="{{ openCompose }}" style="position:fixed;right:40px;bottom:36px;display:flex;align-items:center;gap:8px;background:#E6334C;border-radius:999px;padding:15px 24px;box-shadow:0 14px 28px -8px rgba(230,51,76,.55);cursor:pointer;z-index:120">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    <span style="font-size:14.5px;font-weight:800;color:#fff">Article</span>
+  </div>
+
+  <!-- ===== CREATE ARTICLE MODAL ===== -->
+  <sc-if value="{{ caOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:180;display:flex;align-items:flex-start;justify-content:center;padding:48px 24px;animation:caFade .16s ease">
+      <div onClick="{{ closeCompose }}" style="position:absolute;inset:0;background:rgba(12,16,24,.55)"></div>
+      <div style="position:relative;width:760px;max-height:calc(100vh - 96px);background:#fff;border-radius:14px;box-shadow:0 40px 90px -24px rgba(16,22,32,.55);display:flex;flex-direction:column;overflow:hidden;animation:caRise .2s ease">
+
+        <div style="flex:none;display:flex;align-items:center;gap:14px;padding:20px 26px 18px;border-bottom:1px solid #EEEFF2">
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:17px;font-weight:800;color:#16202E;letter-spacing:-.01em">Create article</div>
+            <div style="font-size:13px;font-weight:600;color:#8A93A2;margin-top:2px">Ashish Kapahi · Posting to the CONNECT feed</div>
+          </div>
+          <div onClick="{{ closeCompose }}" style="width:34px;height:34px;border-radius:50%;background:#F1F2F5;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+          </div>
+        </div>
+
+        <div style="flex:1;overflow-y:auto;padding:22px 26px 26px">
+          <input value="{{ caTitle }}" onChange="{{ caOnTitle }}" placeholder="Add a title" style="border:none;outline:none;width:100%;font-size:25px;font-weight:800;color:#16202E;letter-spacing:-.02em;padding:0;background:transparent;line-height:1.25">
+          <div style="height:1px;background:#EEEFF2;margin:16px 0"></div>
+
+          <textarea value="{{ caDesc }}" onChange="{{ caOnDesc }}" placeholder="Add text to share an update" style="border:none;outline:none;width:100%;height:150px;font-size:16px;font-weight:500;color:#2A323F;line-height:1.6;padding:0;background:transparent"></textarea>
+          <div style="font-size:12.5px;font-weight:700;color:#8A93A2">{{ caBodyMeta }}</div>
+
+          <sc-if value="{{ caHasPicks }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;display:grid;gap:3px;border-radius:10px;overflow:hidden;{{ caGrid }}">
+              <sc-for list="{{ caTiles }}" as="t" hint-placeholder-count="4">
+                <div style="position:relative;overflow:hidden;background:#E9ECF0;{{ t.area }}">
+                  <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;display:block;{{ t.fit }}"></sc-if>
+                  <div onClick="{{ t.onRemove }}" style="position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(12,12,14,.62);display:flex;align-items:center;justify-content:center;cursor:pointer">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+                  </div>
+                  <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                      <span style="font-size:28px;font-weight:800;color:#fff">{{ t.moreLabel }}</span>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px">
+              <span style="font-size:13px;font-weight:800;color:#16202E">{{ caCountLabel }}</span>
+              <span style="font-size:12.5px;font-weight:700;color:#8A93A2">{{ caLayoutHint }}</span>
+            </div>
+            <div style="margin-top:10px;display:grid;grid-template-columns:repeat(8,1fr);gap:9px">
+              <sc-for list="{{ caThumbs }}" as="th" hint-placeholder-count="3">
+                <div draggable="true" onDragStart="{{ th.onDragStart }}" onDragOver="{{ th.onDragOver }}" onDrop="{{ th.onDrop }}" style="position:relative;aspect-ratio:1 / 1;border-radius:8px;overflow:hidden;background:#EDEFF2;cursor:grab">
+                  <sc-if value="{{ th.src }}" hint-placeholder-val="{{ false }}"><img src="{{ th.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+                  <div style="position:absolute;left:5px;top:5px;min-width:17px;height:17px;padding:0 4px;border-radius:5px;background:rgba(12,12,14,.66);display:flex;align-items:center;justify-content:center">
+                    <span style="font-size:10.5px;font-weight:800;color:#fff">{{ th.n }}</span>
+                  </div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ caCanAdd }}" hint-placeholder-val="{{ true }}">
+                <div onClick="{{ caAddImage }}" style="aspect-ratio:1 / 1;border-radius:8px;border:1.5px dashed #C9CED6;display:flex;align-items:center;justify-content:center;cursor:pointer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ caNoPicks }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ caAddImage }}" style="margin-top:16px;border:1.5px dashed #C9CED6;border-radius:10px;padding:26px;display:flex;align-items:center;gap:14px;cursor:pointer;background:#FAFAFB">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="1.7" style="flex:none"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><circle cx="8.5" cy="9.5" r="1.8"></circle><path d="M5 18l5-5 4 4 2-2 3 3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <div>
+                <div style="font-size:14.5px;font-weight:700;color:#3A4250">Add images</div>
+                <div style="font-size:13px;font-weight:600;color:#9AA1AE;margin-top:2px">Up to 6 · the layout follows the count</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="height:1px;background:#EEEFF2;margin:22px 0 18px"></div>
+
+          <div style="font-size:12px;font-weight:800;color:#5B6675;letter-spacing:.07em;text-transform:uppercase">Category</div>
+          <select value="{{ caCategory }}" onChange="{{ caOnCategory }}" style="width:100%;margin-top:9px;border:1.5px solid #E2E4E9;border-radius:8px;padding:11px 13px;font-size:14px;font-weight:600;color:#16202E;outline:none;background:#FAFAFB;appearance:none">
+            <option value="">Select category</option>
+            <sc-for list="{{ caCategories }}" as="cat" hint-placeholder-count="5">
+              <option value="{{ cat.name }}">{{ cat.name }}</option>
+            </sc-for>
+          </select>
+
+          <div style="font-size:12px;font-weight:800;color:#5B6675;letter-spacing:.07em;text-transform:uppercase;margin-top:20px">Reference URL</div>
+          <input value="{{ caUrl }}" onChange="{{ caOnUrl }}" placeholder="External URL" style="width:100%;margin-top:9px;border:1.5px solid #E2E4E9;border-radius:8px;padding:11px 13px;font-size:14px;font-weight:600;color:#16202E;outline:none;background:#FAFAFB">
+
+          <div style="height:1px;background:#EEEFF2;margin:22px 0 18px"></div>
+
+          <div style="display:flex;align-items:baseline;justify-content:space-between">
+            <div style="font-size:15px;font-weight:800;color:#16202E">Send mail to</div>
+            <sc-if value="{{ caTargetLocked }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:12.5px;font-weight:700;color:#8A93A2">{{ caLockNote }}</span>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ caTargetReady }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px">
+              <div>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <span style="font-size:12px;font-weight:800;color:#5B6675;letter-spacing:.07em;text-transform:uppercase">Segments</span>
+                  <span onClick="{{ caSelAllSeg }}" style="font-size:12.5px;font-weight:800;color:#0A58CA;cursor:pointer">{{ caSegAllLabel }}</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:2px;margin-top:10px">
+                  <sc-for list="{{ caSegments }}" as="sg" hint-placeholder-count="6">
+                    <div onClick="{{ sg.onToggle }}" style="display:flex;align-items:center;gap:10px;padding:7px 4px;cursor:pointer">
+                      <div style="width:17px;height:17px;border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;{{ sg.boxStyle }}">
+                        <sc-if value="{{ sg.on }}" hint-placeholder-val="{{ false }}">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                        </sc-if>
+                      </div>
+                      <span style="font-size:13.5px;font-weight:600;color:#3A4250;flex:1;min-width:0">{{ sg.name }}</span>
+                      <span style="font-size:12px;font-weight:700;color:#9AA1AE">{{ sg.size }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                  <span style="font-size:12px;font-weight:800;color:#5B6675;letter-spacing:.07em;text-transform:uppercase">Countries</span>
+                  <span onClick="{{ caSelAllCtry }}" style="font-size:12.5px;font-weight:800;color:#0A58CA;cursor:pointer">{{ caCtryAllLabel }}</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:2px;margin-top:10px">
+                  <sc-for list="{{ caCountries }}" as="c" hint-placeholder-count="8">
+                    <div onClick="{{ c.onToggle }}" style="display:flex;align-items:center;gap:10px;padding:7px 4px;cursor:pointer">
+                      <div style="width:17px;height:17px;border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;{{ c.boxStyle }}">
+                        <sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                        </sc-if>
+                      </div>
+                      <span style="font-size:13.5px;font-weight:600;color:#3A4250">{{ c.name }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:14px;background:{{ caQuotaBg }};border:1px solid {{ caQuotaBorder }};border-radius:10px;padding:13px 15px;margin-top:20px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ caQuotaStroke }}" stroke-width="1.9" style="flex:none"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round"></path></svg>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14px;font-weight:800;color:#16202E">{{ caRecipientLine }}</div>
+                <div style="font-size:12.5px;font-weight:600;color:#5B6675;margin-top:2px">{{ caQuotaText }}</div>
+              </div>
+              <span style="font-size:12.5px;font-weight:800;color:{{ caQuotaColor }};background:#fff;border:1px solid {{ caQuotaBorder }};border-radius:999px;padding:5px 11px;flex:none">{{ caQuotaBadge }}</span>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="flex:none;border-top:1px solid #EEEFF2;padding:16px 26px;display:flex;align-items:center;gap:10px;background:#fff">
+          <sc-if value="{{ caCanAdd }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ caAddImage }}" style="display:flex;align-items:center;gap:8px;border:1.5px solid #DEE1E6;border-radius:8px;padding:9px 14px;cursor:pointer">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#3A4250" stroke-width="1.9"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><circle cx="8.5" cy="9.5" r="1.8"></circle><path d="M5 18l5-5 4 4 2-2 3 3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-size:14px;font-weight:700;color:#3A4250">Add image</span>
+            </div>
+          </sc-if>
+          <div style="flex:1"></div>
+          <div onClick="{{ closeCompose }}" style="border:1.5px solid #DEE1E6;border-radius:8px;padding:11px 20px;cursor:pointer">
+            <span style="font-size:14.5px;font-weight:700;color:#3A4250">Close</span>
+          </div>
+          <div onClick="{{ caOnPublish }}" style="border-radius:8px;padding:12px 26px;cursor:{{ caPublishCursor }};background:{{ caPublishBg }}">
+            <span style="font-size:14.5px;font-weight:800;color:{{ caPublishFg }}">Publish</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ caConfirm }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:190;display:flex;align-items:center;justify-content:center;padding:40px;animation:caFade .16s ease">
+      <div onClick="{{ caCancelConfirm }}" style="position:absolute;inset:0;background:rgba(12,16,24,.5)"></div>
+      <div style="position:relative;width:470px;background:#fff;border-radius:14px;padding:28px 30px 26px;box-shadow:0 40px 80px -20px rgba(16,22,32,.5);animation:caRise .2s ease">
+        <div style="font-size:20px;font-weight:800;color:#16202E;letter-spacing:-.01em">Publish and email this article?</div>
+        <div style="font-size:14.5px;font-weight:500;color:#5B6675;line-height:1.55;margin-top:9px">The article goes live in the feed and an email copy is sent to every matching member. This uses your one email blast for the month and can’t be undone.</div>
+        <div style="background:#F7F8FA;border-radius:10px;padding:14px 16px;margin-top:18px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#8A93A2">Segments</span><span style="font-size:13px;font-weight:700;color:#16202E">{{ caConfirmSeg }}</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#8A93A2">Countries</span><span style="font-size:13px;font-weight:700;color:#16202E">{{ caConfirmCtry }}</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#8A93A2">Est. emails</span><span style="font-size:13px;font-weight:800;color:#E6334C">{{ caConfirmEmails }}</span></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:22px">
+          <div onClick="{{ caCancelConfirm }}" style="flex:1;border:1.5px solid #DEE1E6;border-radius:8px;padding:12px 0;text-align:center;cursor:pointer">
+            <span style="font-size:14.5px;font-weight:700;color:#3A4250">Back to editing</span>
+          </div>
+          <div onClick="{{ caConfirmPublish }}" style="flex:1;background:#E6334C;border-radius:8px;padding:12px 0;text-align:center;cursor:pointer">
+            <span style="font-size:14.5px;font-weight:800;color:#fff">Publish and send</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ caDone }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:195;display:flex;align-items:center;justify-content:center;padding:40px;animation:caFade .16s ease">
+      <div style="position:absolute;inset:0;background:rgba(12,16,24,.55)"></div>
+      <div style="position:relative;width:500px;background:#fff;border-radius:14px;padding:30px 32px 28px;box-shadow:0 40px 80px -20px rgba(16,22,32,.5);animation:caRise .2s ease">
+        <div style="width:46px;height:46px;border-radius:50%;background:#EAF7F0;display:flex;align-items:center;justify-content:center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F8A5B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+        </div>
+        <div style="font-size:21px;font-weight:800;color:#16202E;letter-spacing:-.01em;margin-top:16px">{{ caDoneTitle }}</div>
+        <div style="font-size:14.5px;font-weight:500;color:#5B6675;line-height:1.55;margin-top:8px">{{ caDoneBody }}</div>
+        <div style="display:flex;gap:10px;margin-top:22px">
+          <div onClick="{{ caWriteAnother }}" style="flex:1;border:1.5px solid #DEE1E6;border-radius:8px;padding:12px 0;text-align:center;cursor:pointer">
+            <span style="font-size:14.5px;font-weight:700;color:#3A4250">Write another</span>
+          </div>
+          <div onClick="{{ caDoneClose }}" style="flex:1;background:#16202E;border-radius:8px;padding:12px 0;text-align:center;cursor:pointer">
+            <span style="font-size:14.5px;font-weight:800;color:#fff">Back to feed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ caToast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:210;background:#16202E;border-radius:999px;padding:12px 22px;box-shadow:0 18px 34px -14px rgba(16,22,32,.6)">
+      <span style="font-size:14px;font-weight:700;color:#fff">{{ caToast }}</span>
+    </div>
+  </sc-if>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:200;background:rgba(8,9,11,.94);display:flex">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+        <div style="flex:none;display:flex;align-items:center;gap:14px;padding:20px 26px">
+          <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="{{ lbAvatar }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div style="min-width:0">
+            <div style="font-size:15px;font-weight:800;color:#fff;line-height:1.2">{{ lbAuthor }}</div>
+            <div style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,.5)">{{ lbCounter }}</div>
+          </div>
+        </div>
+        <div style="flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 40px 30px">
+          <img src="{{ lbSrc }}" alt="" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
+          <sc-if value="{{ lbHasPrev }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ lbPrev }}" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+            </div>
+          </sc-if>
+          <sc-if value="{{ lbHasNext }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ lbNext }}" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+            </div>
+          </sc-if>
+        </div>
+        <div style="flex:none;display:flex;justify-content:center;gap:8px;padding:0 26px 26px">
+          <sc-for list="{{ lbThumbs }}" as="t" hint-placeholder-count="6">
+            <div onClick="{{ t.onPick }}" style="width:58px;height:58px;border-radius:8px;overflow:hidden;cursor:pointer;flex:none;{{ t.ring }}">
+              <img src="{{ t.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;{{ t.dim }}">
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="width:392px;flex:none;background:#fff;display:flex;flex-direction:column;border-left:1px solid #E7E8EA">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 22px 0">
+          <span style="font-size:12px;font-weight:800;color:#8A93A2;letter-spacing:.07em">IMAGE DETAIL</span>
+          <div onClick="{{ lbClose }}" style="width:34px;height:34px;border-radius:50%;background:#F1F2F5;display:flex;align-items:center;justify-content:center;cursor:pointer">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+          </div>
+        </div>
+        <div style="padding:18px 22px 0">
+          <div style="font-size:19px;font-weight:800;color:#16202E;line-height:1.3">{{ lbTitle }}</div>
+          <div style="font-size:14.5px;color:#414B5A;line-height:1.6;margin-top:10px">{{ lbBody }}</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:16px">
+            <span style="font-size:12.5px;font-weight:700;color:#5B6675;background:#F1F2F5;border-radius:6px;padding:6px 11px">{{ lbKind }}</span>
+            <span style="font-size:12.5px;font-weight:600;color:#8A93A2">{{ lbDims }}</span>
+          </div>
+        </div>
+        <div style="height:1px;background:#EDEEF1;margin:20px 0 0"></div>
+        <div style="display:flex;align-items:center;justify-content:space-around;padding:8px 0">
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 16px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Like</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 16px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Comment</span></div>
+          <div style="display:flex;align-items:center;gap:9px;padding:10px 16px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Share</span></div>
+        </div>
+        <div style="height:1px;background:#EDEEF1"></div>
+        <div style="flex:1;overflow-y:auto;padding:18px 22px 22px;display:flex;flex-direction:column;gap:16px">
+          <sc-for list="{{ lbComments }}" as="c" hint-placeholder-count="2">
+            <div style="display:flex;align-items:flex-start;gap:11px">
+              <div style="width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:{{ c.color }}"><span style="font-size:12.5px;font-weight:800;color:#fff">{{ c.initials }}</span></div>
+              <div style="min-width:0;background:#F5F6F8;border-radius:10px;padding:11px 13px">
+                <div style="font-size:13.5px;font-weight:800;color:#16202E">{{ c.name }}</div>
+                <div style="font-size:13.5px;color:#414B5A;line-height:1.5;margin-top:3px">{{ c.text }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid #EDEEF1;padding:14px 22px 18px;display:flex;align-items:center;gap:11px">
+          <div style="width:34px;height:34px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div style="flex:1;background:#F1F2F5;border-radius:999px;padding:11px 16px;font-size:14px;color:#9AA1AE;font-weight:500">Add a comment…</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    openMenu: null, lbSet: null, lbIndex: 0, nfTab: 'All', aboutOpen: false,
+    caOpen: false, caTitle: '', caDesc: '', caPicks: [], caCategory: '', caUrl: '',
+    caSegments: {}, caCountries: {}, caConfirm: false, caDone: false,
+    caBlastsUsed: 0, caEmailed: 0, caToast: '', caPosted: null,
+  };
+
+  CA_CATEGORIES = ['Channel strategy','Events','Product','Opinion','Market data'];
+  CA_SEGMENTS = ['Re-Seller','Vendor','VAR','APR','Etailer','Distributor','System Integrator','ISV','Test'];
+  CA_COUNTRIES = ['Bangladesh','Brunei','India','Malaysia','Philippines','Pakistan','Singapore','Thailand','Taiwan','United States','Vietnam'];
+  CA_SEG_SIZE = {'Re-Seller':4200,'Vendor':1800,'VAR':2600,'APR':900,'Etailer':3100,'Distributor':1500,'System Integrator':2200,'ISV':1700,'Test':40};
+  CA_CTRY_SHARE = {'India':0.34,'United States':0.18,'Singapore':0.08,'Malaysia':0.07,'Thailand':0.06,'Vietnam':0.06,'Philippines':0.06,'Pakistan':0.05,'Bangladesh':0.04,'Taiwan':0.03,'Brunei':0.03};
+  CA_LIMIT = 1;
+
+  caFlash(msg){ this.setState({caToast:msg}); clearTimeout(this._ct); this._ct = setTimeout(()=>this.setState({caToast:''}), 2600); }
+
+  caAddPhoto(){
+    this.setState(s => {
+      if (s.caPicks.length >= 6) return null;
+      return { caPicks: [...s.caPicks, this.MIMGS[s.caPicks.length % this.MIMGS.length].src] };
+    });
+  }
+  caRemovePhoto(i){ this.setState(s => ({ caPicks: s.caPicks.filter((_, j) => j !== i) })); }
+  caReorder(from, to){
+    this.setState(s => {
+      if (from == null || from === to) return null;
+      const next = s.caPicks.slice();
+      const [m] = next.splice(from, 1);
+      next.splice(to, 0, m);
+      return { caPicks: next };
+    });
+  }
+  caMosaic(list){
+    if (!list.length) return { style:'', tiles:[] };
+    const shown = Math.min(list.length, 4);
+    const spec = this.MOSAIC[shown];
+    const extra = list.length - shown;
+    const single = list.length === 1;
+    const arOf = src => (this.MIMGS.find(m => m.src === src) || { ar:1.5 }).ar;
+    const aspect = single ? Math.min(1.91, Math.max(0.8, arOf(list[0]))).toFixed(3) + ' / 1' : spec.aspect;
+    return {
+      style: 'aspect-ratio:' + aspect + ';grid-template-columns:' + spec.cols + ';grid-template-rows:' + spec.rows + ';',
+      tiles: list.slice(0, shown).map((src, i) => ({
+        src,
+        area: 'grid-area:' + spec.areas[i] + ';',
+        fit: single ? 'object-fit:contain;background:#F1F3F6;' : 'object-fit:cover;',
+        showMore: i === shown - 1 && extra > 0,
+        moreLabel: '+' + extra,
+      })),
+    };
+  }
+  caPublish(emailed, recipients){
+    this.setState(s => ({
+      caDone: true, caConfirm: false, caOpen: false,
+      caEmailed: emailed ? recipients : 0,
+      caBlastsUsed: emailed ? s.caBlastsUsed + 1 : s.caBlastsUsed,
+      caPosted: {
+        title: s.caTitle.trim(),
+        body: s.caDesc.trim(),
+        imgs: s.caPicks.slice(),
+        category: s.caCategory,
+        emailed: emailed ? recipients : 0,
+      },
+    }));
+  }
+  caReset(){
+    this.setState({
+      caDone: false, caTitle: '', caDesc: '', caPicks: [], caCategory: '', caUrl: '',
+      caSegments: {}, caCountries: {},
+    });
+  }
+
+  MIMGS = [
+    { src:'images/m-landscapes.png', kind:'Landscape', dims:'1283 × 771 · 5:3', ar:1.664 },
+    { src:'images/m-talls.png', kind:'Tall portrait', dims:'900 × 1600 · 9:16', ar:0.563 },
+    { src:'images/m-square.jpg', kind:'Square', dims:'250 × 250 · 1:1', ar:1 },
+    { src:'images/m-banners.png', kind:'Wide banner', dims:'1329 × 520 · 2.6:1', ar:2.556 },
+    { src:'images/m-wide.jpg', kind:'Small landscape', dims:'349 × 253 · 1.4:1', ar:1.379 },
+    { src:'images/m-sq2s.png', kind:'Large square', dims:'2000 × 2000 · 1:1', ar:1 },
+  ];
+
+  MOSAIC = {
+    1: { aspect:'16 / 10', cols:'1fr', rows:'1fr', areas:['1 / 1 / 2 / 2'] },
+    2: { aspect:'2 / 1', cols:'repeat(2,1fr)', rows:'1fr', areas:['1 / 1 / 2 / 2','1 / 2 / 2 / 3'] },
+    3: { aspect:'3 / 2', cols:'repeat(6,1fr)', rows:'repeat(2,1fr)', areas:['1 / 1 / 3 / 5','1 / 5 / 2 / 7','2 / 5 / 3 / 7'] },
+    4: { aspect:'1 / 1', cols:'repeat(2,1fr)', rows:'repeat(2,1fr)', areas:['1 / 1 / 2 / 2','1 / 2 / 2 / 3','2 / 1 / 3 / 2','2 / 2 / 3 / 3'] },
+  };
+
+  MSETS = {
+    mA: {
+      author:'Ashish Kapahi', avatar:'images/ashish.png',
+      title:'Three days at GATES Southeast Asia 2026',
+      body:'Six frames straight off the camera roll — a 9:16 portrait, a 2.6:1 banner, two squares and a pair of landscapes.',
+      imgs:['images/m-landscapes.png','images/m-talls.png','images/m-square.jpg','images/m-banners.png','images/m-wide.jpg','images/m-sq2s.png'],
+      comments:[
+        { name:'Marcus Tan', initials:'MT', color:'#243B53', text:'The keynote shot is excellent. Any chance of the full set?' },
+        { name:'Farah Ismail', initials:'FI', color:'#3D5A47', text:'Great week. The corridor conversations were the real value.' },
+      ],
+    },
+    mB: {
+      author:'Minu Sirsalewala', avatar:'images/minu.png',
+      title:'Distributor roundtable, in three shots',
+      body:'Hero on the left across two thirds, the other two stacked on the right.',
+      imgs:['images/m-banners.png','images/m-talls.png','images/m-wide.jpg'],
+      comments:[
+        { name:'Wei Lin Goh', initials:'WG', color:'#6B3651', text:'Was the bundling deck shared anywhere?' },
+      ],
+    },
+  };
+
+  mosaic(setKey) {
+    const set = this.MSETS[setKey];
+    const list = set.imgs;
+    const shown = Math.min(list.length, 4);
+    const spec = this.MOSAIC[shown] || this.MOSAIC[1];
+    const extra = list.length - shown;
+    return {
+      style: 'aspect-ratio:' + spec.aspect + ';grid-template-columns:' + spec.cols + ';grid-template-rows:' + spec.rows + ';',
+      tiles: list.slice(0, shown).map((src, i) => ({
+        src,
+        area: 'grid-area:' + spec.areas[i] + ';',
+        showMore: extra > 0 && i === shown - 1,
+        moreLabel: '+' + extra,
+        onOpen: () => this.setState({ lbSet: setKey, lbIndex: i }),
+      })),
+    };
+  }
+
+  renderVals() {
+    const aboutOpen = this.state.aboutOpen;
+    const aboutVals = {
+      aboutOpen,
+      aboutClosed: !aboutOpen,
+      aboutLabel: aboutOpen ? 'View Less' : 'View More',
+      toggleAbout: e => { e.preventDefault(); this.setState(s => ({ aboutOpen: !s.aboutOpen })); },
+    };
+    const isOpen = id => this.state.openMenu === id;
+    const toggle = id => () => this.setState(s => ({ openMenu: s.openMenu === id ? null : id }));
+    const ids = ['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12','p13','p14','pm1','pm2','notif'];
+    const menuOpen = {}, menuToggle = {};
+    ids.forEach(id => { menuOpen[id] = isOpen(id); menuToggle[id] = toggle(id); });
+    const mA = this.mosaic('mA');
+    const mB = this.mosaic('mB');
+    const s = this.state;
+    const lbSet = s.lbSet ? this.MSETS[s.lbSet] : null;
+    const lbList = lbSet ? lbSet.imgs : [];
+    const lbSrc = lbList[s.lbIndex] || '';
+    const lbMeta = this.MIMGS.find(m => m.src === lbSrc) || { kind:'', dims:'' };
+    const nfTab = s.nfTab || 'All';
+    const allGroups = [
+      { key:'Connections', title:'Connection request', items:[
+        { name:'Ashish Kapahi', text:'accepted your connection request.', time:'08 Aug 2026 · 08:52 PM', photo:'images/ashish.png', color:'#243B53', unread:true, actionable:false },
+        { name:'Nguyen Hoang Hiep', text:'wishes to connect with you.', time:'08 Aug 2026 · 06:20 PM', initials:'NH', color:'#3D5A47', unread:true, actionable:true },
+        { name:'Farah Ismail', text:'wishes to connect with you.', time:'07 Aug 2026 · 11:05 AM', initials:'FI', color:'#6B3651', unread:true, actionable:true },
+      ]},
+      { key:'Groups', title:'Group request', items:[] },
+      { key:'Articles', title:'Article', items:[] },
+    ];
+    const groups = nfTab === 'All' ? allGroups : allGroups.filter(g => g.key === nfTab);
+    const tabs = ['All','Connections','Groups','Articles'].map(label => {
+      const on = nfTab === label;
+      const count = label === 'All'
+        ? allGroups.reduce((a,g) => a + g.items.length, 0)
+        : (allGroups.find(g => g.key === label) || { items:[] }).items.length;
+      return {
+        label, count,
+        onPick: () => this.setState({ nfTab: label }),
+        style: on ? 'background:#0A58CA;color:#fff;' : 'background:#F1F2F5;color:#5B6675;',
+      };
+    });
+    const st = this.state;
+    const caFmt = n => n.toLocaleString('en-US');
+    const caT = st.caTitle.trim(), caD = st.caDesc.trim();
+    const caCanPost = !!caT && !!caD;
+    const caM = this.caMosaic(st.caPicks);
+    const caSelSeg = this.CA_SEGMENTS.filter(n => st.caSegments[n]);
+    const caSelCtry = this.CA_COUNTRIES.filter(n => st.caCountries[n]);
+    const caSegSum = caSelSeg.reduce((a,n) => a + (this.CA_SEG_SIZE[n]||0), 0);
+    const caCtrySum = caSelCtry.reduce((a,n) => a + (this.CA_CTRY_SHARE[n]||0), 0);
+    const caRecipients = (caSelSeg.length && caSelCtry.length) ? Math.round(caSegSum * caCtrySum) : 0;
+    const caCanEmail = st.caBlastsUsed < this.CA_LIMIT;
+    const caWillEmail = caRecipients > 0 && caCanEmail;
+    const caResetDate = new Date(new Date().getFullYear(), new Date().getMonth()+1, 1).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    const caSegAll = this.CA_SEGMENTS.every(n => st.caSegments[n]);
+    const caCtryAll = this.CA_COUNTRIES.every(n => st.caCountries[n]);
+    const caWords = caD ? caD.split(/\s+/).filter(Boolean).length : 0;
+    const caChip = on => on
+      ? 'background:#16202E;color:#fff;border:1.5px solid #16202E;'
+      : 'background:#fff;color:#3A4250;border:1.5px solid #E2E4E9;';
+    const caBox = on => on
+      ? 'background:#0A58CA;border:1.5px solid #0A58CA;'
+      : 'background:#fff;border:1.5px solid #C9CED6;';
+    const caTargetReady = !!caT && !!st.caCategory;
+
+    const caVals = {
+      caOpen: st.caOpen,
+      openCompose: () => this.setState({ caOpen: true, openMenu: null }),
+      closeCompose: () => this.setState({ caOpen: false }),
+
+      caTitle: st.caTitle, caDesc: st.caDesc,
+      caOnTitle: e => this.setState({ caTitle: e.target.value }),
+      caOnDesc: e => this.setState({ caDesc: e.target.value }),
+      caTitleMeta: caT ? (caT.length + ' / 120 characters') : '',
+      caBodyMeta: caWords ? (caWords + (caWords === 1 ? ' word · ' : ' words · ') + Math.max(1, Math.round(caWords/200)) + ' min read') : 'Required',
+
+      caHasPicks: st.caPicks.length > 0,
+      caNoPicks: st.caPicks.length === 0,
+      caCanAdd: st.caPicks.length < 6,
+      caAddImage: () => this.caAddPhoto(),
+      caGrid: caM.style,
+      caTiles: caM.tiles.map((t, i) => ({ ...t, onRemove: () => this.caRemovePhoto(i) })),
+      caCountLabel: st.caPicks.length + (st.caPicks.length === 1 ? ' image' : ' images'),
+      caLayoutHint: st.caPicks.length > 4 ? 'Four tiles show in the feed; the rest open in the gallery.' : 'Drag the thumbnails to reorder.',
+      caThumbs: st.caPicks.map((src, i) => ({
+        src, n: i + 1,
+        onDragStart: () => { this._cadrag = i; },
+        onDragOver: e => e.preventDefault(),
+        onDrop: e => { e.preventDefault(); this.caReorder(this._cadrag, i); this._cadrag = null; },
+      })),
+
+      caCategory: st.caCategory,
+      caOnCategory: e => this.setState({ caCategory: e.target.value }),
+      caCategories: this.CA_CATEGORIES.map(n => ({ name: n })),
+      caUrl: st.caUrl, caOnUrl: e => this.setState({ caUrl: e.target.value }),
+
+      caTargetReady, caTargetLocked: !caTargetReady,
+      caLockNote: 'Add a title and a category to enable email targeting.',
+      caSegments: this.CA_SEGMENTS.map(n => ({
+        name: n, size: caFmt(this.CA_SEG_SIZE[n] || 0), on: !!st.caSegments[n], boxStyle: caBox(!!st.caSegments[n]),
+        onToggle: () => this.setState(x => { const m = {...x.caSegments}; if (m[n]) delete m[n]; else m[n] = true; return { caSegments:m }; }),
+      })),
+      caCountries: this.CA_COUNTRIES.map(n => ({
+        name: n, on: !!st.caCountries[n], boxStyle: caBox(!!st.caCountries[n]),
+        onToggle: () => this.setState(x => { const m = {...x.caCountries}; if (m[n]) delete m[n]; else m[n] = true; return { caCountries:m }; }),
+      })),
+      caSegAllLabel: caSegAll ? 'Clear all' : 'Select all',
+      caCtryAllLabel: caCtryAll ? 'Clear all' : 'Select all',
+      caSelAllSeg: () => this.setState(() => { const m = {}; if (!caSegAll) this.CA_SEGMENTS.forEach(n => m[n] = true); return { caSegments:m }; }),
+      caSelAllCtry: () => this.setState(() => { const m = {}; if (!caCtryAll) this.CA_COUNTRIES.forEach(n => m[n] = true); return { caCountries:m }; }),
+
+      caRecipientLine: caRecipients
+        ? ('Will email ~' + caFmt(caRecipients) + ' members across ' + caSelCtry.length + ' ' + (caSelCtry.length === 1 ? 'country' : 'countries'))
+        : 'Feed only — no email will be sent',
+      caQuotaText: caCanEmail ? ('1 blast available · resets ' + caResetDate) : ('Limit reached · resets ' + caResetDate),
+      caQuotaBadge: st.caBlastsUsed + ' / ' + this.CA_LIMIT,
+      caQuotaBg: caCanEmail ? '#FAFAFB' : '#FFF4F0',
+      caQuotaBorder: caCanEmail ? '#E7E8EA' : '#F6D4CC',
+      caQuotaStroke: caCanEmail ? '#5B6675' : '#E6334C',
+      caQuotaColor: caCanEmail ? '#1F8A5B' : '#E6334C',
+
+      caPublishBg: caCanPost ? '#E6334C' : '#EDEFF2',
+      caPublishFg: caCanPost ? '#fff' : '#A9B0BA',
+      caPublishCursor: caCanPost ? 'pointer' : 'not-allowed',
+      caOnPublish: () => {
+        if (!caCanPost) { this.caFlash('Add a title and description first'); return; }
+        if (caWillEmail) { this.setState({ caConfirm: true }); return; }
+        this.caPublish(false, 0);
+      },
+
+      caConfirm: st.caConfirm,
+      caConfirmSeg: caSelSeg.length + ' of ' + this.CA_SEGMENTS.length,
+      caConfirmCtry: caSelCtry.length + ' of ' + this.CA_COUNTRIES.length,
+      caConfirmEmails: '~' + caFmt(caRecipients),
+      caCancelConfirm: () => this.setState({ caConfirm: false }),
+      caConfirmPublish: () => this.caPublish(true, caRecipients),
+
+      caDone: st.caDone,
+      caDoneTitle: st.caEmailed ? 'Published and sent' : 'Published to the feed',
+      caDoneBody: st.caEmailed
+        ? ('Your article is live and an email copy went to ~' + caFmt(st.caEmailed) + ' members. Your monthly blast is now used.')
+        : 'Your article is live at the top of the feed.',
+      caDoneClose: () => this.caReset(),
+      caWriteAnother: () => { this.caReset(); this.setState({ caOpen: true }); },
+
+      caToast: st.caToast,
+
+      caHasPosted: !!st.caPosted,
+      caPostedTitle: st.caPosted ? st.caPosted.title : '',
+      caPostedBody: st.caPosted ? st.caPosted.body : '',
+      caPostedCategory: st.caPosted ? (st.caPosted.category || 'No category') : '',
+      caPostedMeta: st.caPosted
+        ? (st.caPosted.emailed ? ('Emailed to ~' + caFmt(st.caPosted.emailed) + ' members') : 'Feed only')
+        : '',
+      caPostedHasImgs: !!(st.caPosted && st.caPosted.imgs.length),
+      caPostedGrid: st.caPosted ? this.caMosaic(st.caPosted.imgs).style : '',
+      caPostedTiles: st.caPosted ? this.caMosaic(st.caPosted.imgs).tiles : [],
+    };
+
+    return {
+      ...aboutVals,
+      ...caVals,
+      menuOpen, menuToggle,
+      notifTabs: tabs,
+      notifGroups: groups.map(g => ({
+        title: g.title,
+        hasItems: g.items.length > 0,
+        isEmpty: g.items.length === 0,
+        items: g.items.map(n => ({
+          ...n,
+          showInitials: !n.photo,
+          rowBg: n.unread ? 'background:#F7FAFF;' : '',
+        })),
+      })),
+      mA: mA.style, mATiles: mA.tiles,
+      mB: mB.style, mBTiles: mB.tiles,
+      lbOpen: !!lbSet,
+      lbSrc,
+      lbAuthor: lbSet ? lbSet.author : '',
+      lbAvatar: lbSet ? lbSet.avatar : '',
+      lbTitle: lbSet ? lbSet.title : '',
+      lbBody: lbSet ? lbSet.body : '',
+      lbKind: lbMeta.kind,
+      lbDims: lbMeta.dims,
+      lbCounter: lbList.length ? (s.lbIndex + 1) + ' of ' + lbList.length : '',
+      lbComments: lbSet ? lbSet.comments : [],
+      lbHasPrev: s.lbIndex > 0,
+      lbHasNext: s.lbIndex < lbList.length - 1,
+      lbPrev: () => this.setState(st => ({ lbIndex: Math.max(0, st.lbIndex - 1) })),
+      lbNext: () => this.setState(st => ({ lbIndex: Math.min(lbList.length - 1, st.lbIndex + 1) })),
+      lbClose: () => this.setState({ lbSet: null, lbIndex: 0 }),
+      lbThumbs: lbList.map((src, i) => ({
+        src,
+        onPick: () => this.setState({ lbIndex: i }),
+        ring: i === s.lbIndex ? 'outline:2.5px solid #fff;outline-offset:-2.5px;' : '',
+        dim: i === s.lbIndex ? '' : 'opacity:.5;',
+      })),
+      vendors: [
+        { name: 'NimbusStack', location: 'Kuala Lumpur, Malaysia', blurb: 'Unified cloud practice tooling for resellers scaling multi-cloud support.', color: '#243B53', initials: 'NS' },
+        { name: 'Vaultline', location: 'Manila, Philippines', blurb: 'Give customers full visibility into their IT spend and usage.', color: '#6B3651', initials: 'VL' },
+        { name: 'Averiware', location: 'Bengaluru, India', blurb: 'Cloud ERP built for fast-growing distribution businesses.', color: '#3D5A47', initials: 'AV' }
+      ],
+      vendorAds: [
+        { brand: 'GIGABYTE', image: (window.__resources && window.__resources.adGigabyte) || 'uploads/1606188161586-GATES_349x253_G492.jpg', likes: 4, claps: 2 },
+        { brand: 'AVer', image: (window.__resources && window.__resources.adAver) || 'uploads/1621497307389-e-banner.jpg', likes: 3, claps: 1 }
+      ],
+      people: [
+        { name: 'Marcus Tan', role: 'Sales Director', company: 'Vaultline', color: '#243B53', initials: 'MT' },
+        { name: 'Wei Lin Goh', role: 'Sr. Software Engineer', company: 'Averiware', color: '#6B3651', initials: 'WG' },
+        { name: 'Farah Ismail', role: 'Channel Partner', company: 'NimbusStack', color: '#3D5A47', initials: 'FI' },
+        { name: 'David Alcantara', role: 'Regional Lead', company: 'GATES', color: '#8A5A2B', initials: 'DA' },
+        { name: 'Sanjay Bhatt', role: 'Solutions Architect', company: 'Vaultline', color: '#5B6675', initials: 'SB' },
+        { name: 'Hana Yusof', role: 'Product Manager', company: 'NimbusStack', color: '#4A3B6B', initials: 'HY' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
