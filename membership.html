@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #E9E9E6; }
+  input, textarea, button { font-family: 'Plus Jakarta Sans', sans-serif; }
+  input:focus { outline: none; }
+  a { color: #DD1A22; text-decoration: none; }
+  a:hover { color: #B8121A; text-decoration: underline; }
+  @keyframes mmRise { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+  .mm-scroll::-webkit-scrollbar { width: 0; height: 0; }
+  .mm-scroll > * { flex: none; }
+</style>
+</helmet>
+
+<div style="font-family:'Plus Jakarta Sans',sans-serif;background:#E9E9E6;padding:44px;display:flex;flex-direction:column;gap:26px">
+
+  <div style="display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A93A2">Membership</div>
+      <div style="font-size:26px;font-weight:800;color:#16202E;line-height:1.2;margin-top:5px">Manage Membership</div>
+      <div style="font-size:14px;font-weight:500;color:#5B6675;margin-top:6px;max-width:660px;line-height:1.5;text-wrap:pretty">Three plans on one comparable grid, an application flow that confirms itself, and a plan history that fills in once you apply.</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-left:auto;background:#fff;border:1px solid #DEDEDA;border-radius:999px;padding:7px 9px;flex-wrap:wrap">
+      <span style="font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A93A2;padding-left:6px">Jump to state</span>
+      <sc-for list="{{ demoStates }}" as="d" hint-placeholder-count="3">
+        <div onClick="{{ d.pick }}" style="border-radius:999px;padding:7px 13px;cursor:pointer;{{ d.style }}">
+          <span style="font-size:12.5px;font-weight:800">{{ d.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:52px;align-items:flex-start">
+
+    <!-- ===================== WEB ===================== -->
+    <div style="flex:none">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#16202E">Web</span>
+        <span style="font-size:12px;font-weight:700;color:#8A93A2">1360 × auto</span>
+      </div>
+
+      <div data-screen-label="Manage Membership Web" style="width:1360px;background:#F3F3F1;border:1px solid #DEDEDA;border-radius:14px;overflow:hidden">
+
+        <div style="background:#fff;border-bottom:1px solid #E7E8EA;display:flex;align-items:center;justify-content:space-between;padding:8px 28px 0;height:64px;gap:22px">
+          <div style="display:flex;align-items:center;gap:22px;flex:none">
+            <img src="uploads/connect-red.png" alt="Connect" style="height:26px;width:auto;display:block">
+            <div style="display:flex;align-items:center;gap:10px;background:#F1F2F5;border:1px solid #E2E4E9;border-radius:999px;padding:9px 16px;width:280px">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" style="flex:none"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5" stroke-linecap="round"></line></svg>
+              <span style="font-size:14.5px;color:#8A93A2;font-weight:500">Search</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;flex:none;height:100%">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3l9 7.6"></path><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"></path></svg>
+              <span style="font-size:13px;font-weight:600;color:#5B6675">Home</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M16.2 14a5.2 5.2 0 0 1 4.8 6"></path></svg>
+              <span style="font-size:13px;font-weight:600;color:#5B6675">Network</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid #E6334C">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l6 6v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"></path><path d="M14 3v6h6"></path><line x1="8.5" y1="13.5" x2="15.5" y2="13.5"></line><line x1="8.5" y1="17.5" x2="13" y2="17.5"></line></svg>
+              <span style="font-size:13px;font-weight:800;color:#E6334C">Membership</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path><line x1="8" y1="11" x2="16" y2="11"></line><line x1="8" y1="14.5" x2="13" y2="14.5"></line></svg>
+              <span style="font-size:13px;font-weight:600;color:#5B6675">Messages</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0 16px;height:100%;border-bottom:2.5px solid transparent">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="2.5"></rect><line x1="3.5" y1="10" x2="20.5" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
+              <span style="font-size:13px;font-weight:600;color:#5B6675">Events</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px;flex:none;padding-left:24px;border-left:1px solid #E7E8EA">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 1 0-12 0c0 6.5-3 8.5-3 8.5h18s-3-2-3-8.5"></path><path d="M13.7 20.5a2 2 0 0 1-3.4 0"></path></svg>
+            <div style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <div style="width:32px;height:32px;border-radius:50%;overflow:hidden;background:#243B53"><img src="images/ashish.png" alt="Me" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              <span style="font-size:13.5px;font-weight:700;color:#16202E">Me</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:24px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px;align-items:start">
+
+          <!-- left rail -->
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;overflow:hidden">
+              <div style="height:74px;background:linear-gradient(120deg,#16202E,#3A4657)"></div>
+              <div style="padding:0 20px 20px">
+                <div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:#243B53;border:4px solid #fff;margin-top:-36px"><img src="images/ashish.png" alt="TR Rithvikl" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="font-size:17px;font-weight:800;color:#16202E;margin-top:11px">TR Rithvikl</div>
+                <div style="font-size:13.5px;font-weight:600;color:#414B5A;margin-top:3px">Product Manager, GTM Remixed</div>
+                <div style="font-size:13px;font-weight:500;color:#8A93A2;margin-top:2px">India</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:14px;background:#F7F7F5;border-radius:8px;padding:9px 12px">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"></rect><path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"></path></svg>
+                  <span style="font-size:13px;font-weight:800;color:#16202E">{{ currentPlanLabel }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:8px 20px;display:flex;flex-direction:column">
+              <div style="font-size:15px;font-weight:800;color:#16202E;padding:12px 0">Manage</div>
+              <div style="height:1px;background:#EDEEF1"></div>
+              <div style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path><path d="M3 21v-5h5"></path></svg>
+                <span style="font-size:14.5px;font-weight:600;color:#414B5A">Draft</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:11px;padding:13px 0;cursor:pointer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"></path><line x1="8" y1="12" x2="16" y2="12"></line><line x1="8" y1="16" x2="13" y2="16"></line></svg>
+                <span style="font-size:14.5px;font-weight:600;color:#414B5A">Article</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:11px;padding:13px 0 15px;cursor:pointer;position:relative">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"></rect><path d="M8 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"></path></svg>
+                <span style="font-size:14.5px;font-weight:800;color:#E6334C">Membership</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- main -->
+          <div style="display:flex;flex-direction:column;gap:18px">
+
+            <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;padding:22px 24px 0">
+              <div style="font-size:22px;font-weight:800;color:#16202E">Manage Membership</div>
+              <div style="font-size:14.5px;font-weight:500;color:#5B6675;margin-top:6px;line-height:1.55;max-width:720px;text-wrap:pretty">Submit an application through the platform, and a GATES representative will contact you to discuss your plan options.</div>
+              <div style="display:flex;gap:26px;margin-top:18px;border-top:1px solid #F1F2F4;padding-top:0">
+                <div onClick="{{ pickApply }}" style="padding:14px 2px;cursor:pointer;{{ tabApplyStyle }}">
+                  <span style="font-size:14.5px;font-weight:800">Apply for Plan</span>
+                </div>
+                <div onClick="{{ pickHistory }}" style="padding:14px 2px;cursor:pointer;{{ tabHistoryStyle }}">
+                  <span style="font-size:14.5px;font-weight:800">Plan History</span>
+                </div>
+              </div>
+            </div>
+
+            <sc-if value="{{ showConfirm }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fff;border:1px solid #F3C8CE;border-left:none;border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px;animation:mmRise .28s ease both">
+                <div style="width:34px;height:34px;border-radius:50%;background:#FDECEE;display:flex;align-items:center;justify-content:center;flex:none">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                </div>
+                <div style="flex:1;min-width:0">
+                  <div style="font-size:14.5px;font-weight:800;color:#16202E">{{ confirmTitle }}</div>
+                  <div style="font-size:13.5px;font-weight:500;color:#5B6675;margin-top:2px">A GATES representative will contact you within 2 working days. Track it under Plan History.</div>
+                </div>
+                <div onClick="{{ pickHistory }}" style="border:1.5px solid #16202E;border-radius:8px;padding:9px 16px;cursor:pointer;flex:none">
+                  <span style="font-size:13px;font-weight:800;color:#16202E">View history</span>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ onApplyTab }}" hint-placeholder-val="{{ true }}">
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start">
+                <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+                  <div style="background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;{{ p.cardStyle }}">
+                    <div style="height:5px;background:{{ p.accent }}"></div>
+                    <div style="padding:20px 22px 0">
+                      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                        <span style="font-size:20px;font-weight:800;color:#16202E">{{ p.name }}</span>
+                        <sc-if value="{{ p.badge }}" hint-placeholder-val="{{ false }}">
+                          <span style="font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 10px;{{ p.badgeStyle }}">{{ p.badge }}</span>
+                        </sc-if>
+                      </div>
+                      <div style="font-size:13.5px;font-weight:500;color:#5B6675;margin-top:6px;line-height:1.5;min-height:40px;text-wrap:pretty">{{ p.tagline }}</div>
+                      <div style="display:flex;align-items:center;gap:7px;margin-top:12px;padding-bottom:16px;border-bottom:1px solid #F1F2F4">
+                        <span style="font-size:12px;font-weight:800;color:{{ p.accent }}">{{ p.countLabel }}</span>
+                        <span style="font-size:12px;font-weight:600;color:#9AA1AE">{{ p.deltaLabel }}</span>
+                      </div>
+                    </div>
+                    <div style="padding:16px 22px 0;display:flex;flex-direction:column;gap:12px;flex:1">
+                      <sc-for list="{{ p.visible }}" as="f" hint-placeholder-count="5">
+                        <div style="display:flex;align-items:flex-start;gap:10px">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="{{ f.tick }}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><path d="M20 6L9 17l-5-5"></path></svg>
+                          <span style="font-size:13.5px;line-height:1.5;{{ f.style }}">{{ f.text }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <div style="padding:16px 22px 20px;display:flex;flex-direction:column;gap:12px">
+                      <sc-if value="{{ p.hasMore }}" hint-placeholder-val="{{ false }}">
+                        <div onClick="{{ p.toggle }}" style="display:flex;align-items:center;gap:6px;cursor:pointer">
+                          <span style="font-size:13px;font-weight:800;color:#16202E">{{ p.moreLabel }}</span>
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="{{ p.chevStyle }}"><path d="M6 9l6 6 6-6"></path></svg>
+                        </div>
+                      </sc-if>
+                      <div onClick="{{ p.apply }}" style="display:flex;align-items:center;justify-content:center;border-radius:9px;padding:12px 0;cursor:pointer;{{ p.ctaStyle }}">
+                        <span style="font-size:13.5px;font-weight:800">{{ p.ctaLabel }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ onHistoryTab }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fff;border:1px solid #ECEDF0;border-radius:10px;overflow:hidden">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px">
+                  <div>
+                    <div style="font-size:16px;font-weight:800;color:#16202E">Applications & plans</div>
+                    <div style="font-size:13px;font-weight:500;color:#8A93A2;margin-top:3px">{{ historyCountLabel }}</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:9px;background:#F1F2F5;border:1px solid #E2E4E9;border-radius:999px;padding:9px 16px;width:260px">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2" style="flex:none"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5" stroke-linecap="round"></line></svg>
+                    <span style="font-size:13.5px;font-weight:500;color:#8A93A2">Search plans</span>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1.3fr .8fr 1fr 1fr 1fr .9fr;gap:12px;padding:11px 22px;background:#F7F7F5;border-top:1px solid #F1F2F4;border-bottom:1px solid #F1F2F4">
+                  <sc-for list="{{ historyCols }}" as="c" hint-placeholder-count="6">
+                    <span style="font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#8A93A2">{{ c }}</span>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ historyEmpty }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:56px 22px;display:flex;flex-direction:column;align-items:center;gap:10px">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C9CFD8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"></path><path d="M14 3v6h6"></path></svg>
+                    <div style="font-size:15px;font-weight:800;color:#16202E">No plan history yet</div>
+                    <div style="font-size:13.5px;font-weight:500;color:#8A93A2;text-align:center;max-width:340px;line-height:1.5">Applications and active plans appear here once you apply. Nothing has been submitted from this account.</div>
+                    <div onClick="{{ pickApply }}" style="background:#E6334C;border-radius:8px;padding:10px 18px;cursor:pointer;margin-top:6px">
+                      <span style="font-size:13px;font-weight:800;color:#fff">Apply for a plan</span>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-for list="{{ history }}" as="h" hint-placeholder-count="0">
+                  <div style="display:grid;grid-template-columns:1.3fr .8fr 1fr 1fr 1fr .9fr;gap:12px;padding:16px 22px;border-bottom:1px solid #F4F5F7;align-items:center">
+                    <div style="display:flex;align-items:center;gap:9px">
+                      <span style="width:9px;height:9px;border-radius:3px;background:{{ h.accent }};flex:none"></span>
+                      <span style="font-size:14px;font-weight:800;color:#16202E">{{ h.plan }}</span>
+                    </div>
+                    <span style="font-size:13.5px;font-weight:600;color:#414B5A">{{ h.duration }}</span>
+                    <span style="font-size:13.5px;font-weight:600;color:#414B5A">{{ h.start }}</span>
+                    <span style="font-size:13.5px;font-weight:600;color:#414B5A">{{ h.end }}</span>
+                    <span style="font-size:13.5px;font-weight:600;color:#414B5A">{{ h.payment }}</span>
+                    <span style="font-size:11.5px;font-weight:800;border-radius:999px;padding:5px 11px;justify-self:start;{{ h.statusStyle }}">{{ h.status }}</span>
+                  </div>
+                </sc-for>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 22px">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:13px;font-weight:600;color:#8A93A2">Rows</span>
+                    <div style="display:flex;align-items:center;gap:8px;border:1px solid #E2E4E9;border-radius:8px;padding:7px 12px">
+                      <span style="font-size:13px;font-weight:700;color:#16202E">10</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-size:13px;font-weight:700;color:#C3C8D0;padding:6px 10px">Previous</span>
+                    <span style="font-size:13px;font-weight:800;color:#fff;background:#E6334C;border-radius:7px;padding:6px 12px">1</span>
+                    <span style="font-size:13px;font-weight:700;color:#C3C8D0;padding:6px 10px">Next</span>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== MOBILE ===================== -->
+    <div style="flex:none">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#16202E">Mobile</span>
+        <span style="font-size:12px;font-weight:700;color:#8A93A2">390 × 844</span>
+      </div>
+
+      <div data-screen-label="Manage Membership Mobile" style="width:390px;height:844px;background:#F3F3F1;border:9px solid #16202E;border-radius:44px;overflow:hidden;position:relative;box-shadow:0 30px 60px -28px rgba(16,22,32,.55)">
+
+        <div style="height:46px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 7px;background:#fff">
+          <span style="font-size:13px;font-weight:800;color:#16202E">9:41</span>
+          <div style="display:flex;align-items:center;gap:5px">
+            <svg width="17" height="12" viewBox="0 0 17 12" fill="#16202E"><rect x="0" y="8" width="3" height="4" rx="1"></rect><rect x="4.5" y="6" width="3" height="6" rx="1"></rect><rect x="9" y="3" width="3" height="9" rx="1"></rect><rect x="13.5" y="0" width="3" height="12" rx="1"></rect></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="3" stroke="#16202E"></rect><rect x="2" y="2" width="14" height="7" rx="1.6" fill="#16202E"></rect><path d="M20 4v3a2 2 0 0 0 0-3z" fill="#16202E"></path></svg>
+          </div>
+        </div>
+
+        <div style="background:#fff;border-bottom:1px solid #EDEEF1;padding:6px 16px 12px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+            <span style="font-size:17px;font-weight:800;color:#16202E">Manage Membership</span>
+          </div>
+          <div style="display:flex;background:#F1F2F5;border-radius:11px;padding:4px;margin-top:14px">
+            <div onClick="{{ pickApply }}" style="flex:1;text-align:center;border-radius:8px;padding:9px 0;cursor:pointer;{{ mTabApplyStyle }}">
+              <span style="font-size:13.5px;font-weight:800">Apply for Plan</span>
+            </div>
+            <div onClick="{{ pickHistory }}" style="flex:1;text-align:center;border-radius:8px;padding:9px 0;cursor:pointer;{{ mTabHistoryStyle }}">
+              <span style="font-size:13.5px;font-weight:800">Plan History</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mm-scroll" style="height:672px;overflow-y:auto;padding:16px 16px 90px;display:flex;flex-direction:column;gap:14px">
+
+          <sc-if value="{{ onApplyTab }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:13.5px;font-weight:500;color:#5B6675;line-height:1.5;text-wrap:pretty">Submit an application through the platform, and a GATES representative will contact you to discuss your plan options.</div>
+          </sc-if>
+
+          <sc-if value="{{ showConfirm }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border:1px solid #F3C8CE;border-radius:12px;padding:14px 16px;display:flex;gap:12px;animation:mmRise .28s ease both">
+              <div style="width:30px;height:30px;border-radius:50%;background:#FDECEE;display:flex;align-items:center;justify-content:center;flex:none">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14px;font-weight:800;color:#16202E">{{ confirmTitle }}</div>
+                <div style="font-size:12.5px;font-weight:500;color:#5B6675;margin-top:3px;line-height:1.45">A representative will contact you within 2 working days.</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ onApplyTab }}" hint-placeholder-val="{{ true }}">
+            <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+              <div style="background:#fff;border-radius:12px;overflow:hidden;{{ p.cardStyle }}">
+                <div style="height:4px;background:{{ p.accent }}"></div>
+                <div style="padding:16px 16px 0">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                    <span style="font-size:18px;font-weight:800;color:#16202E">{{ p.name }}</span>
+                    <sc-if value="{{ p.badge }}" hint-placeholder-val="{{ false }}">
+                      <span style="font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 9px;{{ p.badgeStyle }}">{{ p.badge }}</span>
+                    </sc-if>
+                  </div>
+                  <div style="font-size:13px;font-weight:500;color:#5B6675;margin-top:5px;line-height:1.45;text-wrap:pretty">{{ p.tagline }}</div>
+                  <div style="display:flex;align-items:center;gap:7px;margin-top:10px;padding-bottom:13px;border-bottom:1px solid #F1F2F4">
+                    <span style="font-size:11.5px;font-weight:800;color:{{ p.accent }}">{{ p.countLabel }}</span>
+                    <span style="font-size:11.5px;font-weight:600;color:#9AA1AE">{{ p.deltaLabel }}</span>
+                  </div>
+                </div>
+                <div style="padding:13px 16px 0;display:flex;flex-direction:column;gap:10px">
+                  <sc-for list="{{ p.mVisible }}" as="f" hint-placeholder-count="3">
+                    <div style="display:flex;align-items:flex-start;gap:9px">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="{{ f.tick }}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><path d="M20 6L9 17l-5-5"></path></svg>
+                      <span style="font-size:13px;line-height:1.45;{{ f.style }}">{{ f.text }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="padding:14px 16px 16px;display:flex;flex-direction:column;gap:11px">
+                  <sc-if value="{{ p.mHasMore }}" hint-placeholder-val="{{ true }}">
+                    <div onClick="{{ p.toggle }}" style="display:flex;align-items:center;gap:6px;cursor:pointer">
+                      <span style="font-size:12.5px;font-weight:800;color:#16202E">{{ p.mMoreLabel }}</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="{{ p.chevStyle }}"><path d="M6 9l6 6 6-6"></path></svg>
+                    </div>
+                  </sc-if>
+                  <div onClick="{{ p.apply }}" style="display:flex;align-items:center;justify-content:center;border-radius:9px;padding:13px 0;cursor:pointer;{{ p.ctaStyle }}">
+                    <span style="font-size:14px;font-weight:800">{{ p.ctaLabel }}</span>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </sc-if>
+
+          <sc-if value="{{ onHistoryTab }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #E2E4E9;border-radius:999px;padding:11px 16px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2" style="flex:none"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5" stroke-linecap="round"></line></svg>
+              <span style="font-size:13.5px;font-weight:500;color:#8A93A2">Search plans</span>
+            </div>
+            <sc-if value="{{ historyEmpty }}" hint-placeholder-val="{{ true }}">
+              <div style="background:#fff;border:1px solid #ECEDF0;border-radius:12px;padding:44px 20px;display:flex;flex-direction:column;align-items:center;gap:9px">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9CFD8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"></path><path d="M14 3v6h6"></path></svg>
+                <div style="font-size:15px;font-weight:800;color:#16202E">No plan history yet</div>
+                <div style="font-size:13px;font-weight:500;color:#8A93A2;text-align:center;line-height:1.5">Applications and active plans appear here once you apply.</div>
+                <div onClick="{{ pickApply }}" style="background:#E6334C;border-radius:8px;padding:11px 18px;cursor:pointer;margin-top:6px">
+                  <span style="font-size:13px;font-weight:800;color:#fff">Apply for a plan</span>
+                </div>
+              </div>
+            </sc-if>
+            <sc-for list="{{ history }}" as="h" hint-placeholder-count="0">
+              <div style="background:#fff;border:1px solid #ECEDF0;border-radius:12px;padding:15px 16px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                  <div style="display:flex;align-items:center;gap:9px">
+                    <span style="width:9px;height:9px;border-radius:3px;background:{{ h.accent }};flex:none"></span>
+                    <span style="font-size:15px;font-weight:800;color:#16202E">{{ h.plan }}</span>
+                  </div>
+                  <span style="font-size:11px;font-weight:800;border-radius:999px;padding:5px 10px;{{ h.statusStyle }}">{{ h.status }}</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#9AA1AE">Duration</div>
+                    <div style="font-size:13.5px;font-weight:700;color:#16202E;margin-top:3px">{{ h.duration }}</div>
+                  </div>
+                  <div>
+                    <div style="font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#9AA1AE">Payment</div>
+                    <div style="font-size:13.5px;font-weight:700;color:#16202E;margin-top:3px">{{ h.payment }}</div>
+                  </div>
+                  <div>
+                    <div style="font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#9AA1AE">Start date</div>
+                    <div style="font-size:13.5px;font-weight:700;color:#16202E;margin-top:3px">{{ h.start }}</div>
+                  </div>
+                  <div>
+                    <div style="font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#9AA1AE">End date</div>
+                    <div style="font-size:13.5px;font-weight:700;color:#16202E;margin-top:3px">{{ h.end }}</div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </sc-if>
+
+        </div>
+
+        <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #EDEEF1;display:flex;align-items:center;justify-content:space-around;padding:11px 12px 22px">
+          <sc-for list="{{ mobileNav }}" as="n" hint-placeholder-count="5">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer">
+              <div style="width:22px;height:22px;border-radius:6px;background:{{ n.color }}"></div>
+              <span style="font-size:10.5px;font-weight:800;color:{{ n.color }}">{{ n.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1900,&quot;height&quot;:1100}}">
+const BASE = [
+  'Build and establish your company presence with local resellers',
+  'Find and connect with resellers',
+  'Access to all posted articles',
+  'Search for and view profiles of resellers by region'
+];
+
+const PLANS = [
+  {
+    key: 'basic', name: 'Basic', accent: '#5B6675',
+    tagline: 'Get listed, get found, and start conversations with the channel.',
+    features: BASE.concat(['Privately message in your network'])
+  },
+  {
+    key: 'gold', name: 'Gold', accent: '#C08A16',
+    tagline: 'Everything in Basic, plus paid placement and campaign tools.',
+    features: BASE.concat([
+      'Privately message contacts in your network',
+      'Featured vendor add space for 12 months (side board)',
+      '1 x Featured Post from vendor',
+      'Insert training video to launch a product or to facilitate products understanding',
+      '1 x EDM blasts to registered channels base - advert, link to article etc.)',
+      'Add up to 2 offer a month',
+      '4 x Survey to Targeted Channel Audience per year',
+      'Cross post articles on Facebook and LinkedIn'
+    ])
+  },
+  {
+    key: 'premium', name: 'Premium', accent: '#E6334C', badge: '',
+    tagline: 'Double the reach of Gold, plus a GATES programme slot each year.',
+    features: BASE.concat([
+      'Privately message contacts in your network',
+      'Featured vendor add space for 12 months (side board)',
+      '2 x Featured Posts from vendor',
+      'Insert training video to launch a product or to facilitate products understanding',
+      '2 x EDM blasts to registered channels base advert, link to article etc.)',
+      'Add up to 4 offers a month',
+      '8 x Survey to Targeted Channel Audience per year',
+      'Cross post articles on Facebook and LinkedIn',
+      'Participation in any 1 of GATES Program per year FOC'
+    ])
+  }
+];
+
+class Component extends DCLogic {
+  state = { tab: 'apply', open: {}, applied: null };
+
+  set(patch) { this.setState(patch); }
+
+  demoRows() {
+    const items = [
+      { id: 'apply', label: 'Apply for Plan' },
+      { id: 'expanded', label: 'Plans expanded' },
+      { id: 'history', label: 'History empty' },
+      { id: 'applied', label: 'Applied' }
+    ];
+    const cur = this.state.applied ? 'applied'
+      : this.state.tab === 'history' ? 'history'
+      : (this.state.open.gold || this.state.open.premium) ? 'expanded' : 'apply';
+    return items.map(i => ({
+      label: i.label,
+      style: cur === i.id ? 'background:#E6334C;color:#fff' : 'background:#F1F2F5;color:#5B6675',
+      pick: () => {
+        if (i.id === 'apply') this.set({ tab: 'apply', open: {}, applied: null });
+        if (i.id === 'expanded') this.set({ tab: 'apply', open: { gold: true, premium: true }, applied: null });
+        if (i.id === 'history') this.set({ tab: 'history', applied: null });
+        if (i.id === 'applied') this.set({ tab: 'apply', applied: 'premium' });
+      }
+    }));
+  }
+
+  renderVals() {
+    const s = this.state;
+    const applied = s.applied;
+    const appliedPlan = PLANS.find(p => p.key === applied);
+
+    const plans = PLANS.map((p, i) => {
+      const open = !!s.open[p.key];
+      const isApplied = applied === p.key;
+      const extras = p.features.length - 5;
+      const visible = (open ? p.features : p.features.slice(0, 5)).map((t, idx) => ({
+        text: t,
+        tick: idx < 4 ? '#C3C8D0' : p.accent,
+        style: idx < 4 ? 'color:#5B6675;font-weight:500' : 'color:#16202E;font-weight:600'
+      }));
+      const mVisible = (open ? p.features : p.features.slice(0, 3)).map((t, idx) => ({
+        text: t,
+        tick: idx < 4 ? '#C3C8D0' : p.accent,
+        style: idx < 4 ? 'color:#5B6675;font-weight:500' : 'color:#16202E;font-weight:600'
+      }));
+      return {
+        name: p.name, accent: p.accent, tagline: p.tagline,
+        badge: isApplied ? 'Applied' : (p.badge || ''),
+        badgeStyle: isApplied ? 'background:#16202E;color:#fff' : 'background:#FDECEE;color:#E6334C',
+        countLabel: p.features.length + ' benefits',
+        deltaLabel: i === 0 ? 'starting point' : '+' + (p.features.length - PLANS[i - 1].features.length) + ' over ' + PLANS[i - 1].name,
+        visible, mVisible,
+        hasMore: extras > 0,
+        mHasMore: p.features.length > 3,
+        moreLabel: open ? 'View less' : 'View all ' + p.features.length,
+        mMoreLabel: open ? 'View less' : 'View all ' + p.features.length,
+        chevStyle: open ? 'transform:rotate(180deg)' : '',
+        cardStyle: p.key === 'premium' && !applied
+          ? 'border:1.5px solid #E6334C;box-shadow:0 18px 34px -22px rgba(230,51,76,.5)'
+          : 'border:1px solid #ECEDF0',
+        ctaLabel: isApplied ? 'Application submitted' : 'Apply for ' + p.name,
+        ctaStyle: isApplied
+          ? 'background:#F1F2F5;color:#8A93A2'
+          : (p.key === 'premium' ? 'background:#E6334C;color:#fff' : 'background:#fff;border:1.5px solid #16202E;color:#16202E'),
+        toggle: () => this.setState(st => ({ open: Object.assign({}, st.open, { [p.key]: !st.open[p.key] }) })),
+        apply: () => this.set({ applied: p.key })
+      };
+    });
+
+    const history = appliedPlan ? [{
+      plan: appliedPlan.name, accent: appliedPlan.accent,
+      duration: '12 months', start: 'Pending', end: 'Pending', payment: 'On invoice',
+      status: 'In review',
+      statusStyle: 'background:#FFF3D6;color:#8A6100'
+    }] : [];
+
+    return {
+      demoStates: this.demoRows(),
+      onApplyTab: s.tab === 'apply',
+      onHistoryTab: s.tab === 'history',
+      pickApply: () => this.set({ tab: 'apply' }),
+      pickHistory: () => this.set({ tab: 'history' }),
+      tabApplyStyle: s.tab === 'apply' ? 'color:#E6334C;border-bottom:2.5px solid #E6334C' : 'color:#8A93A2;border-bottom:2.5px solid transparent',
+      tabHistoryStyle: s.tab === 'history' ? 'color:#E6334C;border-bottom:2.5px solid #E6334C' : 'color:#8A93A2;border-bottom:2.5px solid transparent',
+      mTabApplyStyle: s.tab === 'apply' ? 'background:#fff;color:#E6334C;box-shadow:0 1px 3px rgba(16,22,32,.12)' : 'color:#8A93A2',
+      mTabHistoryStyle: s.tab === 'history' ? 'background:#fff;color:#E6334C;box-shadow:0 1px 3px rgba(16,22,32,.12)' : 'color:#8A93A2',
+      plans,
+      showConfirm: !!applied,
+      confirmTitle: appliedPlan ? appliedPlan.name + ' application submitted' : '',
+      currentPlanLabel: appliedPlan ? appliedPlan.name + ' — in review' : 'Professional · no active plan',
+      historyCols: ['Plan name', 'Duration', 'Start date', 'End date', 'Payment', 'Status'],
+      history,
+      historyEmpty: history.length === 0,
+      historyCountLabel: history.length === 0 ? 'Nothing submitted yet' : history.length + ' record',
+      mobileNav: [
+        { label: 'Home', color: '#C3C8D0' },
+        { label: 'Network', color: '#C3C8D0' },
+        { label: 'Post', color: '#C3C8D0' },
+        { label: 'Plans', color: '#E6334C' },
+        { label: 'Me', color: '#C3C8D0' }
+      ]
+    };
+  }
+}
+
+</script>
+
+<script>
+(function(){
+  var R = {'Membership':'membership.html','Home':'index.html'};
+  document.addEventListener('click', function(e){
+    for (var n = e.target; n && n !== document.body; n = n.parentElement) {
+      if (n.tagName === 'A' && n.getAttribute('href')) return;
+      var t = (n.textContent || '').trim();
+      if (R[t]) { location.href = R[t]; e.preventDefault(); return; }
+    }
+  }, true);
+})();
+</script>
+</body>
+</html>

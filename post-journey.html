@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="images/ashish.png" data-resource-id="ashish" />
+<meta name="ext-resource-dependency" content="images/minu.png" data-resource-id="minu" />
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" data-bg-color="#e7e5df"><rect width="100" height="100" fill="#e7e5df"/><rect x="26" y="20" width="48" height="60" rx="9" fill="#fff" stroke="#E6334C" stroke-width="3"/><path d="M38 40h24M38 50h24M38 60h14" stroke="#E6334C" stroke-width="3.4" stroke-linecap="round"/><circle cx="66" cy="66" r="11" fill="#E6334C"/><path d="M61 66l3.5 3.5L72 62" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .pj-input::placeholder, .pj-area::placeholder { color:#A2A9B4; }
+  .pj-input, .pj-area { font-family:'Plus Jakarta Sans',sans-serif; }
+  .pj-area { resize:none; }
+  .pj-scroll::-webkit-scrollbar { width:0; height:0; }
+  @keyframes pjSpin { to { transform:rotate(360deg); } }
+  @keyframes pjPostIn { 0% { opacity:0; transform:translateY(-14px) scale(.985); } 100% { opacity:1; transform:translateY(0) scale(1); } }
+  @keyframes pjFade { from { opacity:0; } to { opacity:1; } }
+</style>
+</helmet>
+
+<div style="min-width:100%;min-height:100vh;box-sizing:border-box;padding:48px;background:#e7e5df;font-family:'Plus Jakarta Sans',sans-serif;display:flex;flex-direction:column;align-items:flex-start;gap:24px">
+
+  <!-- header -->
+  <div style="display:flex;flex-direction:column;gap:4px;padding-left:4px">
+    <div style="font-size:20px;font-weight:800;color:#2b2b27;letter-spacing:-.01em">Post journey</div>
+    <div style="font-size:14px;font-weight:500;color:#8a897f">Browse the feed → create a post → publish → watch the feed refresh with your post on top.</div>
+  </div>
+
+  <!-- stepper + phone -->
+  <div style="display:flex;align-items:flex-start;gap:40px">
+
+    <!-- JOURNEY STEPPER -->
+    <div style="width:226px;flex:none;display:flex;flex-direction:column;gap:2px;padding-top:8px">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+        <div style="display:flex;align-items:flex-start;gap:14px">
+          <div style="display:flex;flex-direction:column;align-items:center;flex:none">
+            <sc-if value="{{ st.isDone }}" hint-placeholder-val="{{ false }}">
+              <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#E6334C;border:2px solid #E6334C;box-sizing:border-box">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+              </div>
+            </sc-if>
+            <sc-if value="{{ st.isActive }}" hint-placeholder-val="{{ true }}">
+              <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #E6334C;box-sizing:border-box">
+                <span style="font-size:13px;font-weight:800;color:#E6334C">{{ st.num }}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ st.isTodo }}" hint-placeholder-val="{{ false }}">
+              <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #D8D6CE;box-sizing:border-box">
+                <span style="font-size:13px;font-weight:800;color:#B6B4AB">{{ st.num }}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{ st.hasLine }}" hint-placeholder-val="{{ true }}">
+              <sc-if value="{{ st.lineDone }}" hint-placeholder-val="{{ false }}"><div style="width:2px;height:46px;background:#E6334C"></div></sc-if>
+              <sc-if value="{{ st.lineTodo }}" hint-placeholder-val="{{ true }}"><div style="width:2px;height:46px;background:#D8D6CE"></div></sc-if>
+            </sc-if>
+          </div>
+          <div style="padding-top:5px;display:flex;flex-direction:column;gap:2px">
+            <sc-if value="{{ st.bright }}" hint-placeholder-val="{{ true }}"><div style="font-size:14.5px;font-weight:700;color:#2b2b27;letter-spacing:.01em">{{ st.title }}</div></sc-if>
+            <sc-if value="{{ st.dim }}" hint-placeholder-val="{{ false }}"><div style="font-size:14.5px;font-weight:700;color:#A09E94;letter-spacing:.01em">{{ st.title }}</div></sc-if>
+            <div style="font-size:12.5px;font-weight:500;color:#A09E94;line-height:1.35">{{ st.sub }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- PHONE -->
+    <div style="width:392px;height:812px;background:#E6E8EC;border-radius:42px;border:11px solid #0c0c0e;box-shadow:0 32px 70px -24px rgba(0,0,0,.45);overflow:hidden;position:relative;flex:none">
+
+      <!-- status bar -->
+      <div style="height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 26px 0 30px;background:#fff">
+        <div style="font-size:16px;font-weight:700;color:#10141b">18:18</div>
+        <div style="display:flex;align-items:center;gap:7px">
+          <svg width="18" height="14" viewBox="0 0 24 20" fill="none" stroke="#10141b" stroke-width="2" stroke-linecap="round"><path d="M2 8a14 14 0 0 1 20 0"></path><path d="M5 12a9 9 0 0 1 14 0"></path><path d="M8.5 15.5a4 4 0 0 1 7 0"></path></svg>
+          <span style="font-size:13px;font-weight:800;color:#10141b">5G</span>
+          <svg width="26" height="14" viewBox="0 0 30 16" fill="none"><rect x="1" y="2" width="24" height="12" rx="3.5" stroke="#10141b" stroke-width="1.6"></rect><rect x="3.5" y="4.5" width="16" height="7" rx="1.5" fill="#10141b"></rect><rect x="26.5" y="5.5" width="2.5" height="5" rx="1.2" fill="#10141b"></rect></svg>
+        </div>
+      </div>
+
+      <sc-if value="{{ notifOpen }}" hint-placeholder-val="{{ false }}">
+        <dc-import name="MobileNotifications" accent="#E6334C" font="Plus Jakarta Sans" on-close="{{ closeNotif }}" hint-size="100%,100%" style="position:absolute;top:46px;left:0;right:0;bottom:0;z-index:80"></dc-import>
+      </sc-if>
+
+      <!-- ============ FEED SCREEN ============ -->
+      <sc-if value="{{ onFeed }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;top:46px;left:0;right:0;bottom:0;display:flex;flex-direction:column;background:#E6E8EC">
+
+          <!-- top bar -->
+          <div style="display:flex;align-items:center;gap:14px;padding:8px 18px 14px;background:#fff;border-bottom:1px solid #ECEDF0;flex:none">
+            <img src="uploads/Connect-C-Red.svg" alt="Connect" width="36" height="36" style="flex:none;display:block">
+            <div style="flex:1;display:flex;align-items:center;gap:12px;background:#F1F2F5;border-radius:999px;padding:11px 18px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA1AE" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5" stroke-linecap="round"></line></svg>
+              <span style="font-size:15px;color:#9AA1AE;font-weight:500">Search</span>
+            </div>
+            <div onClick="{{ openNotif }}" style="position:relative;flex:none;padding:2px;cursor:pointer">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#1A2230" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+              <div style="position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:#E6334C;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 4px">3</div>
+            </div>
+          </div>
+
+          <!-- scrollable feed -->
+          <div class="pj-scroll" ref="{{ feedRef }}" style="flex:1;overflow-y:auto;padding:0 0 8px">
+
+            <!-- refresh spinner -->
+            <sc-if value="{{ refreshing }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 0 16px">
+                <div style="width:28px;height:28px;border-radius:50%;border:3px solid #D8DBE0;border-top-color:#E6334C;animation:pjSpin .7s linear infinite"></div>
+                <div style="font-size:12.5px;font-weight:700;color:#8A93A2">Refreshing feed…</div>
+              </div>
+            </sc-if>
+
+            <!-- composer prompt -->
+            <div onClick="{{ openCompose }}" style="background:#fff;padding:18px;margin-bottom:8px;cursor:pointer">
+              <div style="display:flex;align-items:center;gap:13px">
+                <div style="width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="me" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="flex:1;background:#F1F2F5;border-radius:999px;padding:13px 18px;font-size:15px;color:#9AA1AE;font-weight:500">Share an update…</div>
+              </div>
+            </div>
+
+            <!-- posts -->
+            <sc-for list="{{ posts }}" as="p" hint-placeholder-count="0">
+              <div style="position:relative;background:#fff;padding:18px 18px 6px;margin-bottom:8px;{{ p.extra }}">
+                <sc-if value="{{ p.isNew }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;inset:0;border:2px solid #E6334C;pointer-events:none"></div>
+                </sc-if>
+                <sc-if value="{{ p.isNew }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px">
+                    <span style="display:inline-flex;align-items:center;gap:5px;background:#FCE9EC;border-radius:999px;padding:5px 11px">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                      <span style="font-size:11.5px;font-weight:800;color:#E6334C;letter-spacing:.03em">JUST POSTED</span>
+                    </span>
+                  </div>
+                </sc-if>
+                <div style="display:flex;align-items:flex-start;gap:13px">
+                  <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:{{ p.avatarBg }}"><sc-if value="{{ p.avatar }}" hint-placeholder-val="{{ false }}"><img src="{{ p.avatar }}" alt="{{ p.author }}" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if></div>
+                  <div style="flex:1;min-width:0">
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.author }}</div>
+                      <sc-if value="{{ p.ctaConnect }}" hint-placeholder-val="{{ true }}">
+                        <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:999px;padding:7px 14px;flex:none">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                          <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ p.ctaMessage }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1.6px solid #CBD0D8;border-radius:999px;padding:6px 13px;flex:none">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+                          <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ p.ctaNone }}" hint-placeholder-val="{{ false }}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#C2C8D0" style="flex:none"><circle cx="5" cy="12" r="1.9"></circle><circle cx="12" cy="12" r="1.9"></circle><circle cx="19" cy="12" r="1.9"></circle></svg>
+                      </sc-if>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13px;color:#8A93A2;font-weight:500">{{ p.time }} ·
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+                    </div>
+                  </div>
+                </div>
+                <div style="font-size:20px;font-weight:800;color:#16202E;line-height:1.25;margin-top:14px">{{ p.title }}</div>
+                <div style="font-size:15px;color:#414B5A;line-height:1.55;margin-top:10px">{{ p.bodyText }}<sc-if value="{{ p.showMoreLink }}" hint-placeholder-val="{{ false }}"><span onClick="{{ p.onSeeMore }}" style="font-weight:700;color:#8A93A2;cursor:pointer;margin-left:5px">see more</span></sc-if></div>
+                <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin:14px -18px 0;height:210px;overflow:hidden"><img src="images/keynote.png" alt="post image" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                </sc-if>
+                <sc-if value="{{ p.hasImgs }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin:13px -18px 0;display:grid;gap:3px;overflow:hidden;{{ p.grid }}">
+                    <sc-for list="{{ p.tiles }}" as="t" hint-placeholder-count="4">
+                      <div onClick="{{ t.onOpen }}" style="position:relative;overflow:hidden;background:#E9ECF0;cursor:pointer;{{ t.area }}">
+                        <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;display:block;{{ t.fit }}"></sc-if>
+                        <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                          <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                            <span style="font-size:26px;font-weight:800;color:#fff;letter-spacing:-.01em">{{ t.moreLabel }}</span>
+                          </div>
+                        </sc-if>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="width:21px;height:21px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg></div>
+                    <span style="font-size:14px;color:#8A93A2;font-weight:600">{{ p.likes }}</span>
+                  </div>
+                  <span style="font-size:14px;color:#8A93A2;font-weight:600">{{ p.commentsLabel }}</span>
+                </div>
+                <div style="height:1px;background:#EDEEF1;margin:0 -18px"></div>
+                <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+                  <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Like</span></div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Comment</span></div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Share</span></div>
+                </div>
+              </div>
+            </sc-for>
+            <div style="height:4px"></div>
+          </div>
+
+          <!-- FAB -->
+          <div onClick="{{ openCompose }}" style="position:absolute;right:22px;bottom:104px;width:60px;height:60px;border-radius:50%;background:#E6334C;box-shadow:0 12px 24px -6px rgba(230,51,76,.7);display:flex;align-items:center;justify-content:center;cursor:pointer">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+
+          <!-- bottom nav -->
+          <div style="background:#fff;border-top:1px solid #EAEBEE;padding:10px 12px 26px;display:flex;justify-content:space-between;flex:none">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px"><svg width="25" height="25" viewBox="0 0 24 24" fill="#E6334C"><path d="M3 10.6 12 3l9 7.6V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="font-size:12px;font-weight:700;color:#E6334C">Home</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#9AA1AE" stroke-width="1.9"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><circle cx="17.2" cy="9" r="2.6"></circle><path d="M16 14.3a4.8 4.8 0 0 1 4.5 5.7"></path></svg><span style="font-size:12px;font-weight:600;color:#9AA1AE">Network</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#9AA1AE" stroke-width="1.9"><rect x="4" y="5" width="16" height="16" rx="2.5"></rect><line x1="4" y1="9.5" x2="20" y2="9.5"></line><line x1="8" y1="3" x2="8" y2="6.5" stroke-linecap="round"></line><line x1="16" y1="3" x2="16" y2="6.5" stroke-linecap="round"></line></svg><span style="font-size:12px;font-weight:600;color:#9AA1AE">Events</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#9AA1AE" stroke-width="1.9"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:12px;font-weight:600;color:#9AA1AE">Messages</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#9AA1AE" stroke-width="1.9" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg><span style="font-size:12px;font-weight:600;color:#9AA1AE">More</span></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ COMPOSE SCREEN ============ -->
+      <sc-if value="{{ onCompose }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;top:46px;left:0;right:0;bottom:0;background:#fff;display:flex;flex-direction:column;animation:pjFade .2s ease">
+
+          <!-- compose header -->
+          <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 12px;border-bottom:1px solid #EEEFF2;flex:none">
+            <div onClick="{{ closeCompose }}" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A4250" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            </div>
+            <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="me" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:800;color:#16202E;line-height:1.15">Ashish Kapahi</div>
+              <div style="font-size:12px;font-weight:600;color:#8A93A2">Posting to feed</div>
+            </div>
+            <div onClick="{{ onPost }}" style="background:{{ postBg }};border-radius:999px;padding:10px 22px;cursor:{{ postCursor }};flex:none">
+              <span style="font-size:15px;font-weight:800;color:{{ postFg }}">Post</span>
+            </div>
+          </div>
+
+          <!-- compose body -->
+          <div style="flex:1;overflow-y:auto;padding:18px 20px 0">
+            <input class="pj-input" value="{{ title }}" onChange="{{ onTitle }}" placeholder="Add a title" style="border:none;outline:none;width:100%;font-size:21px;font-weight:800;color:#16202E;letter-spacing:-.01em;padding:0;background:transparent">
+            <div style="height:14px"></div>
+            <textarea class="pj-area" value="{{ desc }}" onChange="{{ onDesc }}" placeholder="Share your thoughts…" style="border:none;outline:none;width:100%;height:150px;font-size:16px;font-weight:500;color:#2A323F;line-height:1.5;padding:0;background:transparent"></textarea>
+            <sc-if value="{{ hasPicks }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;gap:3px;border-radius:16px;overflow:hidden;margin-top:6px;{{ pickGrid }}">
+                <sc-for list="{{ pickTiles }}" as="t" hint-placeholder-count="4">
+                  <div style="position:relative;overflow:hidden;background:#E9ECF0;{{ t.area }}">
+                    <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;display:block;{{ t.fit }}"></sc-if>
+                    <div onClick="{{ t.onRemove }}" style="position:absolute;top:7px;right:7px;width:26px;height:26px;border-radius:50%;background:rgba(12,12,14,.62);display:flex;align-items:center;justify-content:center;cursor:pointer">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+                    </div>
+                    <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                      <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                        <span style="font-size:26px;font-weight:800;color:#fff">{{ t.moreLabel }}</span>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+
+              <div style="margin-top:14px;display:flex;align-items:center">
+                <div style="font-size:13px;font-weight:800;color:#16202E">{{ pickLabel }}</div>
+              </div>
+              <div style="margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+                <sc-for list="{{ pickThumbs }}" as="th" hint-placeholder-count="3">
+                  <div draggable="true" onDragStart="{{ th.onDragStart }}" onDragOver="{{ th.onDragOver }}" onDrop="{{ th.onDrop }}" style="position:relative;aspect-ratio:1 / 1;border-radius:9px;overflow:hidden;background:#EDEFF2;cursor:grab">
+                    <sc-if value="{{ th.src }}" hint-placeholder-val="{{ false }}"><img src="{{ th.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+                    <div style="position:absolute;left:5px;top:5px;min-width:17px;height:17px;padding:0 4px;border-radius:5px;background:rgba(12,12,14,.66);display:flex;align-items:center;justify-content:center">
+                      <span style="font-size:10.5px;font-weight:800;color:#fff">{{ th.n }}</span>
+                    </div>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ canAddPick }}" hint-placeholder-val="{{ true }}">
+                  <div onClick="{{ addImage }}" style="aspect-ratio:1 / 1;border-radius:9px;border:1.5px dashed #C9CED6;display:flex;align-items:center;justify-content:center;cursor:pointer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  </div>
+                </sc-if>
+              </div>
+              <div style="margin-top:9px;font-size:12.5px;font-weight:700;color:#8A93A2">{{ pickHint }}</div>
+              <div style="height:16px"></div>
+            </sc-if>
+          </div>
+
+          <!-- compose toolbar -->
+          <div style="border-top:1px solid #EEEFF2;padding:14px 18px 30px;display:flex;align-items:center;gap:10px;flex:none">
+            <div onClick="{{ addImage }}" style="display:flex;align-items:center;gap:8px;border:1.5px solid #DEE1E6;border-radius:999px;padding:9px 15px;cursor:pointer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A4250" stroke-width="1.9"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><circle cx="8.5" cy="9.5" r="1.8"></circle><path d="M5 18l5-5 4 4 2-2 3 3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-size:14px;font-weight:700;color:#3A4250">{{ photoBtnLabel }}</span>
+            </div>
+            <div style="flex:1"></div>
+            <div onClick="{{ openAdvanced }}" style="display:flex;align-items:center;gap:8px;background:#16202E;border-radius:999px;padding:11px 16px;cursor:pointer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"></path></svg>
+              <span style="font-size:14px;font-weight:700;color:#fff">More options</span>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ===== JOURNEY IMAGE VIEWER ===== -->
+      <sc-if value="{{ jvOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:60;background:#08090B;display:flex;flex-direction:column;animation:pjFade .18s ease">
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 18px 12px;flex:none">
+            <div style="flex:1;min-width:0;display:flex;align-items:center;gap:10px">
+              <div style="width:30px;height:30px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              <div style="min-width:0">
+                <div style="font-size:13.5px;font-weight:800;color:#fff;line-height:1.2">{{ jvAuthor }}</div>
+                <div style="font-size:11.5px;font-weight:600;color:rgba(255,255,255,.55)">{{ jvCounter }}</div>
+              </div>
+            </div>
+            <div onClick="{{ jvClose }}" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            </div>
+          </div>
+
+          <div style="flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 6px">
+            <sc-if value="{{ jvSrc }}" hint-placeholder-val="{{ false }}"><img src="{{ jvSrc }}" alt="" style="max-width:100%;max-height:100%;object-fit:contain;display:block"></sc-if>
+            <sc-if value="{{ jvHasPrev }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ jvPrev }}" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;cursor:pointer">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+              </div>
+            </sc-if>
+            <sc-if value="{{ jvHasNext }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ jvNext }}" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;cursor:pointer">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+              </div>
+            </sc-if>
+          </div>
+
+          <div style="flex:none;padding:14px 18px 0">
+            <div style="font-size:13.5px;font-weight:500;color:rgba(255,255,255,.82);line-height:1.5">{{ jvCaption }}</div>
+          </div>
+
+          <div class="pj-scroll" style="flex:none;display:flex;gap:7px;overflow-x:auto;padding:14px 18px 0">
+            <sc-for list="{{ jvThumbs }}" as="v" hint-placeholder-count="3">
+              <div onClick="{{ v.onPick }}" style="width:46px;height:46px;flex:none;border-radius:7px;overflow:hidden;cursor:pointer;{{ v.ring }}">
+                <sc-if value="{{ v.src }}" hint-placeholder-val="{{ false }}"><img src="{{ v.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;{{ v.dim }}"></sc-if>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="flex:none;display:flex;align-items:center;justify-content:space-around;padding:14px 10px 30px;margin-top:12px;border-top:1px solid rgba(255,255,255,.1)">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:13.5px;font-weight:700;color:rgba(255,255,255,.85)">Like</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:13.5px;font-weight:700;color:rgba(255,255,255,.85)">Comment</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:13.5px;font-weight:700;color:rgba(255,255,255,.85)">Share</span></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ===== MORE OPTIONS SHEET ===== -->
+      <sc-if value="{{ advancedOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:20">
+          <div onClick="{{ closeAdvanced }}" style="position:absolute;inset:0;background:rgba(12,16,24,.42)"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:90%;background:#fff;border-radius:26px 26px 0 0;box-shadow:0 -16px 40px -10px rgba(0,0,0,.25);display:flex;flex-direction:column;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:18px 20px 14px;border-bottom:1px solid #EEEFF2;flex:none">
+              <div style="flex:1">
+                <div style="font-size:17px;font-weight:800;color:#16202E">More options</div>
+                <div style="font-size:12px;font-weight:600;color:#8A93A2">Category, link &amp; distribution</div>
+              </div>
+              <div onClick="{{ closeAdvanced }}" style="width:34px;height:34px;border-radius:50%;background:#F1F2F5;display:flex;align-items:center;justify-content:center;cursor:pointer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A4250" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+              </div>
+            </div>
+
+            <div style="flex:1;overflow-y:auto;padding:18px 20px 16px">
+              <div style="font-size:13px;font-weight:700;color:#16202E;margin-bottom:7px">Category</div>
+              <div style="position:relative;margin-bottom:18px">
+                <select value="{{ category }}" onChange="{{ onCategory }}" style="appearance:none;-webkit-appearance:none;width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#16202E;border:1.5px solid #DEE1E6;border-radius:12px;padding:13px 40px 13px 14px;background:#fff;outline:none">
+                  <option value="">Select category</option>
+                  <option value="Announcement">Announcement</option>
+                  <option value="Product update">Product update</option>
+                  <option value="Event">Event</option>
+                  <option value="Hiring">Hiring</option>
+                  <option value="Insight">Insight</option>
+                </select>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none"><path d="M6 9l6 6 6-6"></path></svg>
+              </div>
+
+              <div style="font-size:13px;font-weight:700;color:#16202E;margin-bottom:7px">Post reference URL <span style="font-weight:500;color:#A2A9B4">· optional</span></div>
+              <input class="pj-input" value="{{ url }}" onChange="{{ onUrl }}" placeholder="https://" style="width:100%;font-size:15px;font-weight:500;color:#16202E;border:1.5px solid #DEE1E6;border-radius:12px;padding:13px 14px;outline:none;background:#fff">
+
+              <div style="height:1px;background:#EEEFF2;margin:22px 0"></div>
+
+              <div style="display:flex;gap:11px;background:#FFF4F0;border:1px solid #F8D6CC;border-radius:14px;padding:13px 14px;margin-bottom:18px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2" style="flex:none;margin-top:1px"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <div style="font-size:13px;font-weight:600;color:#9A2417;line-height:1.45">This isn’t just a feed post. Everyone you select below will be <b>emailed</b> a copy when you publish.</div>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:11px;border:1px solid {{ quotaBorder }};background:{{ quotaBg }};border-radius:13px;padding:12px 14px;margin-bottom:18px">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ quotaIcon }}" stroke-width="2" style="flex:none"><rect x="3" y="5" width="18" height="16" rx="2.5"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7" stroke-linecap="round"></line><line x1="16" y1="3" x2="16" y2="7" stroke-linecap="round"></line></svg>
+                <div style="flex:1;min-width:0">
+                  <div style="font-size:14px;font-weight:800;color:{{ quotaTitleColor }}">Monthly email blast</div>
+                  <div style="font-size:12px;font-weight:600;color:{{ quotaSubColor }}">{{ quotaText }}</div>
+                </div>
+                <div style="background:{{ quotaBadgeBg }};border-radius:8px;padding:5px 11px;flex:none"><span style="font-size:13px;font-weight:800;color:{{ quotaBadgeColor }}">{{ quotaBadge }}</span></div>
+              </div>
+
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+                <div style="font-size:14px;font-weight:800;color:#16202E">Send mail to</div>
+                <div onClick="{{ selAllSeg }}" style="font-size:13px;font-weight:700;color:#E6334C;cursor:pointer">{{ segAllLabel }}</div>
+              </div>
+              <sc-for list="{{ segmentList }}" as="seg" hint-placeholder-count="5">
+                <div onClick="{{ seg.onToggle }}" style="display:flex;align-items:center;gap:12px;padding:10px 0;cursor:pointer">
+                  <sc-if value="{{ seg.checked }}" hint-placeholder-val="{{ false }}"><div style="width:22px;height:22px;border-radius:6px;background:#E6334C;display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></div></sc-if>
+                  <sc-if value="{{ seg.unchecked }}" hint-placeholder-val="{{ true }}"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #C4C9D2;flex:none"></div></sc-if>
+                  <span style="font-size:15px;font-weight:600;color:#2A323F">{{ seg.name }}</span>
+                </div>
+              </sc-for>
+
+              <div style="height:1px;background:#EEEFF2;margin:14px 0 16px"></div>
+
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+                <div style="font-size:14px;font-weight:800;color:#16202E">Select country</div>
+                <div onClick="{{ selAllCtry }}" style="font-size:13px;font-weight:700;color:#E6334C;cursor:pointer">{{ ctryAllLabel }}</div>
+              </div>
+              <sc-for list="{{ countryList }}" as="c" hint-placeholder-count="5">
+                <div onClick="{{ c.onToggle }}" style="display:flex;align-items:center;gap:12px;padding:10px 0;cursor:pointer">
+                  <sc-if value="{{ c.checked }}" hint-placeholder-val="{{ false }}"><div style="width:22px;height:22px;border-radius:6px;background:#E6334C;display:flex;align-items:center;justify-content:center;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></div></sc-if>
+                  <sc-if value="{{ c.unchecked }}" hint-placeholder-val="{{ true }}"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #C4C9D2;flex:none"></div></sc-if>
+                  <span style="font-size:15px;font-weight:600;color:#2A323F">{{ c.name }}</span>
+                </div>
+              </sc-for>
+              <div style="height:16px"></div>
+            </div>
+
+            <div style="border-top:1px solid #EEEFF2;flex:none">
+              <sc-if value="{{ willEmail }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:center;gap:9px;background:#FBECE9;padding:11px 20px">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B5271A" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <span style="font-size:13px;font-weight:700;color:#9A2417">{{ recipientBanner }}</span>
+                </div>
+              </sc-if>
+              <div style="display:flex;gap:12px;padding:14px 20px 28px">
+                <div onClick="{{ closeAdvanced }}" style="flex:1;text-align:center;background:#16202E;border-radius:13px;padding:14px 0;cursor:pointer">
+                  <span style="font-size:15px;font-weight:800;color:#fff">Done</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ===== PUBLISH CONFIRM ===== -->
+      <sc-if value="{{ confirmOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:26px">
+          <div onClick="{{ cancelConfirm }}" style="position:absolute;inset:0;background:rgba(12,16,24,.5)"></div>
+          <div style="position:relative;background:#fff;border-radius:22px;padding:24px 22px;width:100%;box-shadow:0 24px 60px -16px rgba(0,0,0,.4)">
+            <div style="width:52px;height:52px;border-radius:15px;background:#FFF1ED;display:flex;align-items:center;justify-content:center">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E6334C" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size:20px;font-weight:800;color:#16202E;margin-top:16px;line-height:1.25">Publish and send email?</div>
+            <div style="font-size:15px;font-weight:500;color:#5B6675;line-height:1.5;margin-top:9px">{{ confirmBody }}</div>
+            <div style="background:#F7F8FA;border-radius:13px;padding:13px 15px;margin-top:16px;display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#8A93A2">Segments</span><span style="font-size:13px;font-weight:700;color:#16202E">{{ segSummary }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#8A93A2">Countries</span><span style="font-size:13px;font-weight:700;color:#16202E">{{ ctrySummary }}</span></div>
+              <div style="display:flex;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#8A93A2">Est. emails</span><span style="font-size:13px;font-weight:800;color:#E6334C">{{ recipientText }}</span></div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:20px">
+              <div onClick="{{ cancelConfirm }}" style="flex:1;text-align:center;border:1.5px solid #DEE1E6;border-radius:13px;padding:14px 0;cursor:pointer"><span style="font-size:15px;font-weight:800;color:#3A4250">Cancel</span></div>
+              <div onClick="{{ confirmPublish }}" style="flex:1.4;text-align:center;background:#E6334C;border-radius:13px;padding:14px 0;cursor:pointer"><span style="font-size:15px;font-weight:800;color:#fff">Publish &amp; send</span></div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- toast -->
+      <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;left:20px;right:20px;bottom:34px;z-index:40;background:#16202E;border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 16px 30px -10px rgba(0,0,0,.4)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5FD08B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          <span style="font-size:14px;font-weight:700;color:#fff">{{ toast }}</span>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+
+  <!-- ================= MULTI-IMAGE POST ================= -->
+  <div style="height:20px"></div>
+  <div style="width:100%;height:1px;background:#D6D4CB"></div>
+
+  <div style="display:flex;flex-direction:column;gap:4px;padding-left:4px;margin-top:20px">
+    <div style="font-size:20px;font-weight:800;color:#2b2b27;letter-spacing:-.01em">Multi-image post · layout system</div>
+    <div style="font-size:14px;font-weight:500;color:#8a897f">Six source images at wildly different dimensions, normalised into one mosaic. Switch the count to compare layouts.</div>
+  </div>
+
+  <div style="display:flex;align-items:flex-start;gap:36px;margin-top:22px">
+
+    <!-- RULES + SOURCE LIST -->
+    <div style="width:250px;flex:none;display:flex;flex-direction:column;gap:22px;padding-top:4px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:11.5px;font-weight:800;color:#A09E94;letter-spacing:.09em">LAYOUT RULES</div>
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="5">
+          <div style="display:flex;gap:11px;border-radius:10px;padding:9px 11px;{{ r.wrap }}">
+            <div style="width:22px;flex:none;font-size:13px;font-weight:800;{{ r.numColor }}">{{ r.n }}</div>
+            <div style="font-size:12.5px;font-weight:600;line-height:1.4;{{ r.txtColor }}">{{ r.text }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div style="font-size:11.5px;font-weight:800;color:#A09E94;letter-spacing:.09em">SOURCE FILES</div>
+        <sc-for list="{{ srcList }}" as="f" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:34px;height:34px;border-radius:7px;overflow:hidden;flex:none;background:#DAD8CF"><sc-if value="{{ f.src }}" hint-placeholder-val="{{ false }}"><img src="{{ f.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if></div>
+            <div style="min-width:0">
+              <div style="font-size:12.5px;font-weight:700;color:#3f3e38">{{ f.kind }}</div>
+              <div style="font-size:11.5px;font-weight:600;color:#A09E94">{{ f.dims }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- PHONE A · FEED RENDER -->
+    <div style="display:flex;flex-direction:column;gap:12px;flex:none">
+      <div style="display:flex;align-items:center;gap:8px;padding-left:2px">
+        <span style="font-size:11.5px;font-weight:800;color:#A09E94;letter-spacing:.09em">IMAGES</span>
+        <sc-for list="{{ countOpts }}" as="o" hint-placeholder-count="5">
+          <div onClick="{{ o.onPick }}" style="min-width:34px;text-align:center;border-radius:999px;padding:6px 10px;cursor:pointer;{{ o.style }}">
+            <span style="font-size:13px;font-weight:800">{{ o.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="width:392px;height:812px;background:#E6E8EC;border-radius:42px;border:11px solid #0c0c0e;box-shadow:0 32px 70px -24px rgba(0,0,0,.45);overflow:hidden;position:relative">
+        <div style="height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 26px 0 30px;background:#fff">
+          <div style="font-size:16px;font-weight:700;color:#10141b">18:24</div>
+          <div style="display:flex;align-items:center;gap:7px">
+            <svg width="18" height="14" viewBox="0 0 24 20" fill="none" stroke="#10141b" stroke-width="2" stroke-linecap="round"><path d="M2 8a14 14 0 0 1 20 0"></path><path d="M5 12a9 9 0 0 1 14 0"></path><path d="M8.5 15.5a4 4 0 0 1 7 0"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#10141b">5G</span>
+            <svg width="26" height="14" viewBox="0 0 30 16" fill="none"><rect x="1" y="2" width="24" height="12" rx="3.5" stroke="#10141b" stroke-width="1.6"></rect><rect x="3.5" y="4.5" width="16" height="7" rx="1.5" fill="#10141b"></rect><rect x="26.5" y="5.5" width="2.5" height="5" rx="1.2" fill="#10141b"></rect></svg>
+          </div>
+        </div>
+
+        <div style="position:absolute;top:46px;left:0;right:0;bottom:0;display:flex;flex-direction:column;background:#E6E8EC">
+          <div style="display:flex;align-items:center;gap:14px;padding:8px 18px 14px;background:#fff;border-bottom:1px solid #ECEDF0;flex:none">
+            <img src="uploads/Connect-C-Red.svg" alt="Connect" width="36" height="36" style="flex:none;display:block">
+            <div style="flex:1;display:flex;align-items:center;gap:12px;background:#F1F2F5;border-radius:999px;padding:11px 18px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA1AE" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5" stroke-linecap="round"></line></svg>
+              <span style="font-size:15px;color:#9AA1AE;font-weight:500">Search</span>
+            </div>
+            <div style="position:relative;flex:none;padding:2px">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#1A2230" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+            </div>
+          </div>
+
+          <div class="pj-scroll" style="flex:1;overflow-y:auto;padding:0 0 8px">
+            <div style="background:#fff;padding:18px 18px 6px;margin-bottom:8px">
+              <div style="display:flex;align-items:flex-start;gap:13px">
+                <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="flex:1;min-width:0">
+                  <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2">Ashish Kapahi</div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13px;color:#8A93A2;font-weight:500">2h ·
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+                  </div>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#C2C8D0" style="flex:none"><circle cx="5" cy="12" r="1.9"></circle><circle cx="12" cy="12" r="1.9"></circle><circle cx="19" cy="12" r="1.9"></circle></svg>
+              </div>
+              <div style="font-size:20px;font-weight:800;color:#16202E;line-height:1.25;margin-top:14px">Three days at GATES Southeast Asia 2026</div>
+              <div style="font-size:15px;color:#414B5A;line-height:1.55;margin-top:10px">The keynote hall, the partner meetings, the corridor conversations that actually moved deals. A few frames from the week.</div>
+
+              <div style="margin:13px -18px 0;display:grid;gap:3px;overflow:hidden;{{ mosaicStyle }}">
+                <sc-for list="{{ mTiles }}" as="t" hint-placeholder-count="4">
+                  <div onClick="{{ t.onOpen }}" style="position:relative;overflow:hidden;background:#E9ECF0;cursor:pointer;{{ t.area }}">
+                    <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;display:block;{{ t.fit }}"></sc-if>
+                    <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                      <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                        <span style="font-size:26px;font-weight:800;color:#fff;letter-spacing:-.01em">{{ t.moreLabel }}</span>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="width:21px;height:21px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg></div>
+                  <span style="font-size:14px;color:#8A93A2;font-weight:600">48</span>
+                </div>
+                <span style="font-size:14px;color:#8A93A2;font-weight:600">6 comments</span>
+              </div>
+              <div style="height:1px;background:#EDEEF1;margin:0 -18px"></div>
+              <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Like</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Comment</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Share</span></div>
+              </div>
+            </div>
+            <!-- POST 2 · two-image post -->
+            <div style="background:#fff;padding:18px 18px 6px;margin-bottom:8px">
+              <div style="display:flex;align-items:flex-start;gap:13px">
+                <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#6B3651"><img src="images/minu.png" alt="Minu Sirsalewala" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Minu Sirsalewala</div>
+                    <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1.6px solid #CBD0D8;border-radius:999px;padding:6px 13px;flex:none">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16202E" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg>
+                      <span style="font-size:13px;font-weight:800;color:#16202E">Message</span>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13px;color:#8A93A2;font-weight:500">5h ·
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size:20px;font-weight:800;color:#16202E;line-height:1.25;margin-top:14px">Two frames from the distributor roundtable</div>
+              <div style="font-size:15px;color:#414B5A;line-height:1.55;margin-top:10px">A wide shot and a tall one — the pair layout splits them 50/50 and crops to fill, so mismatched dimensions still read as one block.</div>
+              <div style="margin:13px -18px 0;display:grid;gap:3px;grid-template-columns:1fr 1fr;height:230px">
+                <div style="overflow:hidden;background:#E9ECF0"><img src="images/m-wide.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="overflow:hidden;background:#E9ECF0"><img src="images/m-tall.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="width:21px;height:21px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg></div>
+                  <span style="font-size:14px;color:#8A93A2;font-weight:600">17</span>
+                </div>
+                <span style="font-size:14px;color:#8A93A2;font-weight:600">2 comments</span>
+              </div>
+              <div style="height:1px;background:#EDEEF1;margin:0 -18px"></div>
+              <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Like</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Comment</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Share</span></div>
+              </div>
+            </div>
+
+            <!-- POST 3 · single wide image -->
+            <div style="background:#fff;padding:18px 18px 6px;margin-bottom:8px">
+              <div style="display:flex;align-items:flex-start;gap:13px">
+                <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Ashish Kapahi</div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#C2C8D0" style="flex:none"><circle cx="5" cy="12" r="1.9"></circle><circle cx="12" cy="12" r="1.9"></circle><circle cx="19" cy="12" r="1.9"></circle></svg>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13px;color:#8A93A2;font-weight:500">1d ·
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size:20px;font-weight:800;color:#16202E;line-height:1.25;margin-top:14px">One image, full bleed</div>
+              <div style="font-size:15px;color:#414B5A;line-height:1.55;margin-top:10px">A single attachment runs edge to edge at a fixed 210px band, cropped from the centre. <span style="font-weight:800;color:#16202E">View more</span></div>
+              <div style="margin:14px -18px 0;height:210px;overflow:hidden"><img src="images/m-banner.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="width:21px;height:21px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg></div>
+                  <span style="font-size:14px;color:#8A93A2;font-weight:600">9</span>
+                </div>
+                <span style="font-size:14px;color:#8A93A2;font-weight:600">1 comment</span>
+              </div>
+              <div style="height:1px;background:#EDEEF1;margin:0 -18px"></div>
+              <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Like</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Comment</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Share</span></div>
+              </div>
+            </div>
+
+            <!-- POST 4 · text only -->
+            <div style="background:#fff;padding:18px 18px 6px;margin-bottom:8px">
+              <div style="display:flex;align-items:flex-start;gap:13px">
+                <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:#6B3651"><img src="images/minu.png" alt="Minu Sirsalewala" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <div style="font-size:17px;font-weight:800;color:#16202E;line-height:1.2;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Minu Sirsalewala</div>
+                    <div style="display:flex;align-items:center;gap:6px;background:#0A58CA;border-radius:999px;padding:7px 14px;flex:none">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      <span style="font-size:13px;font-weight:800;color:#fff">Add</span>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13px;color:#8A93A2;font-weight:500">2d ·
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"></path></svg>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size:20px;font-weight:800;color:#16202E;line-height:1.25;margin-top:14px">Text-only posts keep the same rhythm</div>
+              <div style="font-size:15px;color:#414B5A;line-height:1.55;margin-top:10px">No attachment, no mosaic — the card collapses to title, body and the action row, so the feed never leaves an empty frame behind.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="width:21px;height:21px;border-radius:50%;background:#E6334C;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M2 11h4v10H2zM21.5 11.2 19.8 19a2 2 0 0 1-2 1.6H8V10l4-7a1.6 1.6 0 0 1 2.8 1.2L13.8 9h5.6a2 2 0 0 1 2.1 2.2z"></path></svg></div>
+                  <span style="font-size:14px;color:#8A93A2;font-weight:600">4</span>
+                </div>
+                <span style="font-size:14px;color:#8A93A2;font-weight:600">0 comments</span>
+              </div>
+              <div style="height:1px;background:#EDEEF1;margin:0 -18px"></div>
+              <div style="display:flex;align-items:center;justify-content:space-around;padding:6px 0">
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Like</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Comment</span></div>
+                <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:14px;font-weight:700;color:#5B6675">Share</span></div>
+              </div>
+            </div>
+            <div style="height:6px"></div>
+          </div>
+        </div>
+
+        <!-- ===== IMAGE VIEWER ===== -->
+        <sc-if value="{{ viewerOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;inset:0;z-index:50;background:#08090B;display:flex;flex-direction:column;animation:pjFade .18s ease">
+
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 18px 12px;flex:none">
+              <div style="flex:1;min-width:0;display:flex;align-items:center;gap:10px">
+                <div style="width:30px;height:30px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="Ashish Kapahi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                <div style="min-width:0">
+                  <div style="font-size:13.5px;font-weight:800;color:#fff;line-height:1.2">Ashish Kapahi</div>
+                  <div style="font-size:11.5px;font-weight:600;color:rgba(255,255,255,.55)">{{ viewerCounter }}</div>
+                </div>
+              </div>
+              <div onClick="{{ closeViewer }}" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+              </div>
+            </div>
+
+            <div style="flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 6px">
+              <img src="{{ viewerSrc }}" alt="" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
+              <sc-if value="{{ hasPrev }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ prevImg }}" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;cursor:pointer">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+                </div>
+              </sc-if>
+              <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}">
+                <div onClick="{{ nextImg }}" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;cursor:pointer">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+                </div>
+              </sc-if>
+            </div>
+
+            <div style="flex:none;padding:14px 18px 0">
+              <div style="font-size:15px;font-weight:800;color:#fff;line-height:1.3">Three days at GATES Southeast Asia 2026</div>
+            </div>
+
+            <div class="pj-scroll" style="flex:none;display:flex;gap:7px;overflow-x:auto;padding:14px 18px 0">
+              <sc-for list="{{ viewerThumbs }}" as="v" hint-placeholder-count="4">
+                <div onClick="{{ v.onPick }}" style="width:46px;height:46px;flex:none;border-radius:7px;overflow:hidden;cursor:pointer;{{ v.ring }}">
+                  <img src="{{ v.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;{{ v.dim }}">
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="flex:none;display:flex;align-items:center;justify-content:space-around;padding:14px 10px 30px;margin-top:12px;border-top:1px solid rgba(255,255,255,.1)">
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linejoin="round"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"></path><path d="M7 10l4.2-7.2a1.8 1.8 0 0 1 3.1 1.8L13 9h5.5a2 2 0 0 1 2 2.4l-1.5 7a2 2 0 0 1-2 1.6H7"></path></svg><span style="font-size:13.5px;font-weight:700;color:rgba(255,255,255,.85)">48</span></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-5.4A8.5 8.5 0 1 1 21 11.5z"></path></svg><span style="font-size:13.5px;font-weight:700;color:rgba(255,255,255,.85)">6</span></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:4px 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><line x1="12" y1="15" x2="12" y2="3"></line><path d="M7 8l5-5 5 5"></path></svg><span style="font-size:13.5px;font-weight:700;color:rgba(255,255,255,.85)">Share</span></div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="font-size:12.5px;font-weight:700;color:#8a897f;padding-left:4px">Feed render · {{ mCaption }} · tap a tile to open the viewer</div>
+    </div>
+
+    <!-- PHONE B · COMPOSER -->
+    <div style="display:flex;flex-direction:column;gap:12px;flex:none">
+      <div style="display:flex;align-items:center;gap:8px;padding-left:2px">
+        <span style="font-size:11.5px;font-weight:800;color:#A09E94;letter-spacing:.09em">FRAMING</span>
+        <div style="border-radius:999px;padding:6px 13px;background:#16202E">
+          <span style="font-size:13px;font-weight:800;color:#fff">Uniform crop</span>
+        </div>
+      </div>
+
+      <div style="width:392px;height:812px;background:#fff;border-radius:42px;border:11px solid #0c0c0e;box-shadow:0 32px 70px -24px rgba(0,0,0,.45);overflow:hidden;position:relative">
+        <div style="height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 26px 0 30px;background:#fff">
+          <div style="font-size:16px;font-weight:700;color:#10141b">18:24</div>
+          <div style="display:flex;align-items:center;gap:7px">
+            <svg width="18" height="14" viewBox="0 0 24 20" fill="none" stroke="#10141b" stroke-width="2" stroke-linecap="round"><path d="M2 8a14 14 0 0 1 20 0"></path><path d="M5 12a9 9 0 0 1 14 0"></path><path d="M8.5 15.5a4 4 0 0 1 7 0"></path></svg>
+            <span style="font-size:13px;font-weight:800;color:#10141b">5G</span>
+            <svg width="26" height="14" viewBox="0 0 30 16" fill="none"><rect x="1" y="2" width="24" height="12" rx="3.5" stroke="#10141b" stroke-width="1.6"></rect><rect x="3.5" y="4.5" width="16" height="7" rx="1.5" fill="#10141b"></rect><rect x="26.5" y="5.5" width="2.5" height="5" rx="1.2" fill="#10141b"></rect></svg>
+          </div>
+        </div>
+
+        <div style="position:absolute;top:46px;left:0;right:0;bottom:0;background:#fff;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:12px;padding:8px 16px 12px;border-bottom:1px solid #EEEFF2;flex:none">
+            <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex:none">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A4250" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            </div>
+            <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;background:#243B53"><img src="images/ashish.png" alt="me" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:800;color:#16202E;line-height:1.15">Ashish Kapahi</div>
+              <div style="font-size:12px;font-weight:600;color:#8A93A2">Posting to feed</div>
+            </div>
+            <div style="background:#E6334C;border-radius:999px;padding:10px 22px;flex:none"><span style="font-size:15px;font-weight:800;color:#fff">Post</span></div>
+          </div>
+
+          <div class="pj-scroll" style="flex:1;overflow-y:auto;padding:18px 20px 0">
+            <div style="font-size:21px;font-weight:800;color:#16202E;letter-spacing:-.01em">Three days at GATES Southeast Asia 2026</div>
+            <div style="height:10px"></div>
+            <div style="font-size:16px;font-weight:500;color:#2A323F;line-height:1.5">The keynote hall, the partner meetings, the corridor conversations that actually moved deals. A few frames from the week.</div>
+
+            <div style="margin-top:16px;display:grid;gap:3px;border-radius:16px;overflow:hidden;{{ mosaicStyle }}">
+              <sc-for list="{{ cTiles }}" as="t" hint-placeholder-count="4">
+                <div style="position:relative;overflow:hidden;background:#E9ECF0;{{ t.area }}">
+                  <sc-if value="{{ t.src }}" hint-placeholder-val="{{ false }}"><img src="{{ t.src }}" alt="" style="width:100%;height:100%;display:block;{{ t.fit }}"></sc-if>
+                  <div style="position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;background:rgba(12,12,14,.62);display:flex;align-items:center;justify-content:center">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+                  </div>
+                  <sc-if value="{{ t.showMore }}" hint-placeholder-val="{{ false }}">
+                    <div style="position:absolute;inset:0;background:rgba(11,16,24,.56);display:flex;align-items:center;justify-content:center">
+                      <span style="font-size:26px;font-weight:800;color:#fff">{{ t.moreLabel }}</span>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ t.needsAlt }}" hint-placeholder-val="{{ true }}">
+                    <div style="position:absolute;left:7px;bottom:7px;background:rgba(12,12,14,.62);border-radius:6px;padding:3px 7px"><span style="font-size:10.5px;font-weight:800;color:#fff;letter-spacing:.05em">ALT</span></div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="margin-top:16px;display:flex;align-items:center">
+              <div style="font-size:13px;font-weight:800;color:#16202E">{{ trayLabel }}</div>
+            </div>
+            <div style="margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+              <sc-for list="{{ mThumbs }}" as="th" hint-placeholder-count="4">
+                <div draggable="true" onDragStart="{{ th.onDragStart }}" onDragOver="{{ th.onDragOver }}" onDrop="{{ th.onDrop }}" style="position:relative;aspect-ratio:1 / 1;border-radius:9px;overflow:hidden;background:#EDEFF2;cursor:grab">
+                  <sc-if value="{{ th.src }}" hint-placeholder-val="{{ false }}"><img src="{{ th.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if>
+                  <div style="position:absolute;left:5px;top:5px;min-width:17px;height:17px;padding:0 4px;border-radius:5px;background:rgba(12,12,14,.66);display:flex;align-items:center;justify-content:center">
+                    <span style="font-size:10.5px;font-weight:800;color:#fff">{{ th.n }}</span>
+                  </div>
+                </div>
+              </sc-for>
+              <div style="aspect-ratio:1 / 1;border-radius:9px;border:1.5px dashed #C9CED6;display:flex;align-items:center;justify-content:center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A93A2" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              </div>
+            </div>
+            <div style="margin-top:9px;font-size:12.5px;font-weight:700;color:#8A93A2">Drag to reorder</div>
+
+            <div style="height:20px"></div>
+          </div>
+
+          <div style="border-top:1px solid #EEEFF2;padding:14px 18px 30px;display:flex;align-items:center;gap:10px;flex:none">
+            <div style="display:flex;align-items:center;gap:8px;border:1.5px solid #DEE1E6;border-radius:999px;padding:9px 15px">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A4250" stroke-width="1.9"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><circle cx="8.5" cy="9.5" r="1.8"></circle><path d="M5 18l5-5 4 4 2-2 3 3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-size:14px;font-weight:700;color:#3A4250">Photo</span>
+            </div>
+            <div style="flex:1"></div>
+            <div style="display:flex;align-items:center;gap:8px;background:#16202E;border-radius:999px;padding:11px 16px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"></path></svg>
+              <span style="font-size:14px;font-weight:700;color:#fff">More options</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:12.5px;font-weight:700;color:#8a897f;padding-left:4px">Composer · review, reorder, alt text</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:700,&quot;height&quot;:920}}">
+class Component extends DCLogic {
+  state = {
+    screen: 'feed',        // 'feed' | 'compose'
+    refreshing: false,
+    hasPosted: false,
+    title: '',
+    desc: '',
+    hasImage: false,
+    picks: [],
+    mOrder: [],
+    expanded: {},
+    jvOpen: false,
+    jvIndex: 0,
+    jvPostId: '',
+    advancedOpen: false,
+    category: '',
+    url: '',
+    segments: {},
+    countries: {},
+    confirmOpen: false,
+    mCount: 5,
+    total: 6,
+    cropMode: 'crop',
+    viewerOpen: false,
+    viewerIndex: 0,
+    blastsUsed: 0,
+    toast: '',
+    posts: [
+      { id:'p1', author:'Ashish Kapahi', avatar:'images/ashish.png', avatarBg:'#243B53', time:'24 May 2026 · 07:23 AM', title:'Scaling the Enterprise Channel across Southeast Asia', body:'The channel was once built to move technology. Now it has to make technology make sense — translating capability into the outcomes customers actually buy.', hasImage:false, imgs:['images/m-landscapes.png','images/m-talls.png','images/m-square.jpg','images/m-banners.png'], likes:2, comments:0, isNew:false, cta:'connect' },
+      { id:'p1a', author:'Minu Sirsalewala', avatar:'images/minu.png', avatarBg:'#6B3651', time:'24 May 2026 · 09:10 AM', title:'One frame from the keynote hall', body:'A single image runs full width and keeps its own aspect ratio — nothing is cropped away.', hasImage:false, imgs:['images/m-landscapes.png'], likes:3, comments:0, isNew:false, cta:'connect' },
+      { id:'p1b', author:'Ashish Kapahi', avatar:'images/ashish.png', avatarBg:'#243B53', time:'24 May 2026 · 11:02 AM', title:'Two frames from the distributor roundtable', body:'Two images split the row into equal halves and crop to fill, so mismatched dimensions still line up.', hasImage:false, imgs:['images/m-wide.jpg','images/m-talls.png'], likes:4, comments:1, isNew:false, cta:'message' },
+      { id:'p1c', author:'Minu Sirsalewala', avatar:'images/minu.png', avatarBg:'#6B3651', time:'25 May 2026 · 08:40 AM', title:'Three sessions, one afternoon', body:'Three images place a hero on the left across two-thirds, with two squares stacked on the right.', hasImage:false, imgs:['images/m-landscapes.png','images/m-square.jpg','images/m-sq2s.png'], likes:6, comments:2, isNew:false, cta:'connect' },
+      { id:'p1d', author:'Ashish Kapahi', avatar:'images/ashish.png', avatarBg:'#243B53', time:'26 May 2026 · 10:15 AM', title:'Five moments from the partner floor', body:'Beyond four, the grid holds at 2 × 2 and the last tile carries the overflow count into the viewer.', hasImage:false, imgs:['images/m-banners.png','images/m-talls.png','images/m-square.jpg','images/m-wide.jpg','images/m-landscapes.png'], likes:9, comments:3, isNew:false, cta:'message' },
+      { id:'p1e', author:'Minu Sirsalewala', avatar:'images/minu.png', avatarBg:'#6B3651', time:'26 May 2026 · 04:48 PM', title:'Six frames from closing night', body:'Six images show the same four tiles with a “+2” overflow — the full set opens in the gallery.', hasImage:false, imgs:['images/m-landscapes.png','images/m-talls.png','images/m-square.jpg','images/m-banners.png','images/m-wide.jpg','images/m-sq2s.png'], likes:12, comments:5, isNew:false, cta:'connect' },
+      { id:'p2', author:'Minu Sirsalewala', avatar:'images/minu.png', avatarBg:'#6B3651', time:'27 May 2026 · 07:15 AM', title:'Field enablement that actually sticks', body:'Most playbooks die in the inbox. The teams that win treat enablement like a product — shipped in small loops, measured on usage.', hasImage:false, likes:5, comments:1, isNew:false, cta:'message' },
+    ],
+  };
+
+  MIMGS = [
+    { src:'images/m-landscapes.png', kind:'Landscape', dims:'1283 × 771 · 5:3',  ar:1.664 },
+    { src:'images/m-talls.png',      kind:'Tall portrait', dims:'900 × 1600 · 9:16', ar:0.563 },
+    { src:'images/m-square.jpg',     kind:'Square', dims:'250 × 250 · 1:1', ar:1 },
+    { src:'images/m-banners.png',    kind:'Wide banner', dims:'1329 × 520 · 2.6:1', ar:2.556 },
+    { src:'images/m-wide.jpg',       kind:'Small landscape', dims:'349 × 253 · 1.4:1', ar:1.379 },
+    { src:'images/m-sq2s.png',       kind:'Large square', dims:'2000 × 2000 · 1:1', ar:1 },
+  ];
+
+  MOSAIC = {
+    1: { aspect:'4 / 5',  cols:'1fr',            rows:'1fr',        areas:['1 / 1 / 2 / 2'] },
+    2: { aspect:'2 / 1',  cols:'repeat(2,1fr)',  rows:'1fr',        areas:['1 / 1 / 2 / 2','1 / 2 / 2 / 3'] },
+    3: { aspect:'3 / 2',  cols:'repeat(6,1fr)',  rows:'repeat(2,1fr)', areas:['1 / 1 / 3 / 5','1 / 5 / 2 / 7','2 / 5 / 3 / 7'] },
+    4: { aspect:'1 / 1',  cols:'repeat(2,1fr)',  rows:'repeat(2,1fr)', areas:['1 / 1 / 2 / 2','1 / 2 / 2 / 3','2 / 1 / 3 / 2','2 / 2 / 3 / 3'] },
+    5: { aspect:'6 / 5',  cols:'repeat(6,1fr)',  rows:'3fr 2fr',    areas:['1 / 1 / 2 / 4','1 / 4 / 2 / 7','2 / 1 / 3 / 3','2 / 3 / 3 / 5','2 / 5 / 3 / 7'] },
+  };
+
+  RULES = [
+    { n:'1', text:'Single image runs full width at its own ratio, clamped between 4:5 and 1.91:1.' },
+    { n:'2', text:'Two images split into equal 1:1 halves.' },
+    { n:'3', text:'Hero on the left across two-thirds, two squares stacked right.' },
+    { n:'4', text:'Uniform 2 × 2 grid of squares.' },
+    { n:'5', text:'Five or more stay in the 2 × 2 grid — the last cell becomes a +N tile into the viewer.' },
+  ];
+
+  SEGMENTS = ['Re-Seller','Vendor','VAR','APR','Etailer','Distributor','System Integrator','ISV','Test'];
+  COUNTRIES = ['Bangladesh','Brunei','India','Malaysia','Philippines','Pakistan','Singapore','Thailand','Taiwan','United States','Vietnam'];
+  SEG_SIZE = {'Re-Seller':4200,'Vendor':1800,'VAR':2600,'APR':900,'Etailer':3100,'Distributor':1500,'System Integrator':2200,'ISV':1700,'Test':40};
+  CTRY_SHARE = {'India':0.34,'United States':0.18,'Singapore':0.08,'Malaysia':0.07,'Thailand':0.06,'Vietnam':0.06,'Philippines':0.06,'Pakistan':0.05,'Bangladesh':0.04,'Taiwan':0.03,'Brunei':0.03};
+  LIMIT = 1;
+  feedRef = React.createRef();
+
+  flash(msg){ this.setState({toast:msg}); clearTimeout(this._t); this._t = setTimeout(()=>this.setState({toast:''}), 2600); }
+  toggleSeg(n){ this.setState(s=>{ const m={...s.segments}; if(m[n]) delete m[n]; else m[n]=true; return {segments:m}; }); }
+  toggleCtry(n){ this.setState(s=>{ const m={...s.countries}; if(m[n]) delete m[n]; else m[n]=true; return {countries:m}; }); }
+  selAllSeg(){ this.setState(s=>{ const all=this.SEGMENTS.every(n=>s.segments[n]); const m={}; if(!all) this.SEGMENTS.forEach(n=>m[n]=true); return {segments:m}; }); }
+  selAllCtry(){ this.setState(s=>{ const all=this.COUNTRIES.every(n=>s.countries[n]); const m={}; if(!all) this.COUNTRIES.forEach(n=>m[n]=true); return {countries:m}; }); }
+  openAdvanced(){ this.setState({advancedOpen:true}); }
+  closeAdvanced(){ this.setState({advancedOpen:false}); }
+
+  openCompose(){ this.setState({ screen:'compose' }); }
+  closeCompose(){ this.setState({ screen:'feed' }); }
+
+  publish(emailed, recipients){
+    const t = this.state.title.trim();
+    const d = this.state.desc.trim();
+    if(!t || !d) return;
+    const newPost = {
+      id:'p'+Date.now(), author:'Ashish Kapahi', avatar:'images/ashish.png', avatarBg:'#243B53',
+      time:'Just now', title:t, body:d, hasImage:false, imgs:this.state.picks.slice(), likes:0, comments:0, isNew:true,
+    };
+    this.setState(s => ({
+      screen:'feed', refreshing:true, hasPosted:true, advancedOpen:false, confirmOpen:false,
+      title:'', desc:'', hasImage:false, picks:[], category:'', url:'', segments:{}, countries:{},
+      blastsUsed: emailed ? s.blastsUsed + 1 : s.blastsUsed,
+      posts: [ newPost, ...s.posts.map(p => ({...p, isNew:false})) ],
+    }));
+    if(this.feedRef.current) this.feedRef.current.scrollTop = 0;
+    clearTimeout(this._r);
+    this._r = setTimeout(() => {
+      this.setState({ refreshing:false });
+      if(this.feedRef.current) this.feedRef.current.scrollTop = 0;
+      this.flash(emailed ? ('Posted · emailed ~' + recipients.toLocaleString('en-US') + ' members') : 'Posted to your feed');
+      clearTimeout(this._h);
+      this._h = setTimeout(() => this.setState(s => ({ posts: s.posts.map(p => ({...p, isNew:false})) })), 3200);
+    }, 1100);
+  }
+
+  resolveImg(path){
+    const map = { 'images/ashish.png':'ashish', 'images/minu.png':'minu' };
+    const id = map[path];
+    return (id && window.__resources && window.__resources[id]) || path;
+  }
+
+  mosaicFor(list){
+    const shown = Math.min(list.length, 4);
+    const spec = this.MOSAIC[shown] || this.MOSAIC[1];
+    const extra = list.length - shown;
+    const single = list.length === 1;
+    const arOf = src => (this.MIMGS.find(m => m.src === src) || { ar:1.5 }).ar;
+    const aspect = single
+      ? Math.min(1.91, Math.max(0.8, arOf(list[0]))).toFixed(3) + ' / 1'
+      : spec.aspect;
+    return {
+      style: 'aspect-ratio:' + aspect + ';grid-template-columns:' + spec.cols + ';grid-template-rows:' + spec.rows + ';',
+      tiles: list.slice(0, shown).map((src, i) => ({
+        src,
+        area: 'grid-area:' + spec.areas[i] + ';',
+        fit: single ? 'object-fit:contain;background:#F1F3F6;' : 'object-fit:cover;',
+        showMore: i === shown - 1 && extra > 0,
+        moreLabel: '+' + extra,
+      })),
+    };
+  }
+
+  dragStart(key, i){ this._drag = { key, i }; }
+  dragOver(e){ e.preventDefault(); }
+  dropOn(key, to){
+    const d = this._drag;
+    this._drag = null;
+    if (!d || d.key !== key || d.i === to) return;
+    this.setState(s => {
+      const list = key === 'picks' ? s.picks.slice() : this.orderList(s).slice();
+      const [moved] = list.splice(d.i, 1);
+      list.splice(to, 0, moved);
+      return key === 'picks' ? { picks: list } : { mOrder: list, viewerIndex: 0 };
+    });
+  }
+  orderList(s){
+    if (s.mOrder && s.mOrder.length === s.total) return s.mOrder;
+    return Array.from({length: s.total}, (_, i) => this.MIMGS[i % this.MIMGS.length].src);
+  }
+
+  addPhoto(){
+    this.setState(s => {
+      if (s.picks.length >= 6) return null;
+      const next = this.MIMGS[s.picks.length % this.MIMGS.length].src;
+      return { picks: [...s.picks, next] };
+    });
+  }
+
+  removePhoto(i){
+    this.setState(s => ({ picks: s.picks.filter((_, k) => k !== i) }));
+  }
+
+  pickCount(n){
+    const total = n === 5 ? 6 : n;
+    this.setState({ mCount: n, total, viewerIndex: 0, viewerOpen: false, mOrder: [] });
+  }
+
+  multiVals(){
+    const s = this.state;
+    const n = s.mCount;
+    const shown = Math.min(n, 4);
+    const spec = this.MOSAIC[shown];
+    const order = this.orderList(s);
+    const bySrc = src => this.MIMGS.find(m => m.src === src) || this.MIMGS[0];
+    const imgs = order.slice(0, shown).map(bySrc);
+    const single = n === 1;
+    const singleAr = Math.min(1.91, Math.max(0.8, this.MIMGS[0].ar));
+    const aspect = single ? (singleAr.toFixed(3) + ' / 1') : spec.aspect;
+    const fitCss = (single || s.cropMode === 'fit') ? 'object-fit:contain;background:#F1F3F6;' : 'object-fit:cover;';
+    const extra = s.total - shown;
+    const all = order.map(bySrc);
+    const vi = Math.min(s.viewerIndex, all.length - 1);
+
+    const tiles = imgs.map((im, i) => ({
+      src: im.src,
+      area: 'grid-area:' + spec.areas[i] + ';',
+      fit: fitCss,
+      showMore: i === shown - 1 && extra > 0,
+      moreLabel: '+' + extra,
+      onOpen: () => this.setState({ viewerOpen:true, viewerIndex:i }),
+    }));
+
+    const captions = {
+      1: 'one image · natural ratio, clamped',
+      2: 'two images · equal halves',
+      3: 'three images · hero + stack',
+      4: 'four images · 2 × 2 grid',
+      5: '6 images · 4 tiles + “+2” overflow',
+    };
+
+    return {
+      mosaicStyle: 'aspect-ratio:' + aspect + ';grid-template-columns:' + spec.cols + ';grid-template-rows:' + spec.rows + ';',
+      mTiles: tiles,
+      cTiles: tiles.map((t, i) => ({ ...t, needsAlt: i === 1 })),
+      viewerOpen: s.viewerOpen,
+      viewerSrc: all[vi].src,
+      viewerCounter: (vi + 1) + ' of ' + all.length,
+      hasPrev: vi > 0,
+      hasNext: vi < all.length - 1,
+      prevImg: () => this.setState(st => ({ viewerIndex: Math.max(0, st.viewerIndex - 1) })),
+      nextImg: () => this.setState(st => ({ viewerIndex: Math.min(all.length - 1, st.viewerIndex + 1) })),
+      closeViewer: () => this.setState({ viewerOpen:false }),
+      viewerThumbs: all.map((im, i) => ({
+        src: im.src,
+        onPick: () => this.setState({ viewerIndex: i }),
+        ring: i === vi ? 'box-shadow:0 0 0 2px #fff;' : '',
+        dim: i === vi ? '' : 'opacity:.45;',
+      })),
+      mThumbs: all.map((im, i) => ({
+        src: im.src,
+        n: i + 1,
+        onDragStart: () => this.dragStart('demo', i),
+        onDragOver: e => this.dragOver(e),
+        onDrop: () => this.dropOn('demo', i),
+      })),
+      mCaption: captions[n],
+      trayLabel: s.total + ' photos',
+      hintText: s.cropMode === 'fit'
+        ? 'Uncropped: every image is shown whole and letterboxed onto a neutral field. Safer for slides and screenshots, less tidy in the grid.'
+        : 'Uniform crop: tiles are filled edge to edge from the centre. Cleanest grid, but tall portraits and wide banners lose their edges.',
+      countOpts: [1,2,3,4,5].map(v => ({
+        label: v === 5 ? '6' : String(v),
+        onPick: () => this.pickCount(v),
+        style: v === n ? 'background:#E6334C;color:#fff;' : 'background:#fff;color:#8a897f;',
+      })),
+      cropOpts: [
+        { key:'crop', label:'Uniform crop' },
+        { key:'fit', label:'Uncropped' },
+      ].map(o => ({
+        label: o.label,
+        onPick: () => this.setState({ cropMode: o.key }),
+        style: o.key === s.cropMode ? 'background:#16202E;color:#fff;' : 'background:#fff;color:#8a897f;',
+      })),
+      rules: this.RULES.map(r => ({
+        n: r.n,
+        text: r.text,
+        wrap: String(n) === r.n ? 'background:#fff;' : '',
+        numColor: String(n) === r.n ? 'color:#E6334C;' : 'color:#B6B4AB;',
+        txtColor: String(n) === r.n ? 'color:#3f3e38;' : 'color:#A09E94;',
+      })),
+      srcList: this.MIMGS,
+    };
+  }
+
+  renderVals(){
+    const s = this.state;
+    const onFeed = s.screen === 'feed';
+    const onCompose = s.screen === 'compose';
+    const canPost = s.title.trim().length>0 && s.desc.trim().length>0;
+
+    const transparent = true;
+    const selSeg = this.SEGMENTS.filter(n=>s.segments[n]);
+    const selCtry = this.COUNTRIES.filter(n=>s.countries[n]);
+    const segSum = selSeg.reduce((a,n)=>a+(this.SEG_SIZE[n]||0),0);
+    const ctrySum = selCtry.reduce((a,n)=>a+(this.CTRY_SHARE[n]||0),0);
+    const recipients = (selSeg.length && selCtry.length) ? Math.round(segSum*ctrySum) : 0;
+    const canEmail = s.blastsUsed < this.LIMIT;
+    const willEmail = recipients > 0 && canEmail;
+    const fmt = n => n.toLocaleString('en-US');
+    const resetDate = new Date(new Date().getFullYear(), new Date().getMonth()+1, 1).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    const segAll = this.SEGMENTS.every(n=>s.segments[n]);
+    const ctryAll = this.COUNTRIES.every(n=>s.countries[n]);
+    const onPost = () => {
+      if (!canPost) return;
+      if (willEmail && transparent) { this.setState({confirmOpen:true}); return; }
+      this.publish(willEmail, recipients);
+    };
+
+    const pickMosaic = this.mosaicFor(s.picks);
+    const jvPost = s.posts.find(p => p.id === s.jvPostId);
+    const jvList = (jvPost && jvPost.imgs) || [];
+    const jvIdx = Math.min(s.jvIndex, Math.max(0, jvList.length - 1));
+
+    const posts = s.posts.map(p => {
+      const LIMIT = 180;
+      const open = !!s.expanded[p.id];
+      const long = p.body.length > LIMIT;
+      let clipped = p.body;
+      if (long && !open) {
+        clipped = p.body.slice(0, LIMIT);
+        const cut = clipped.lastIndexOf(' ');
+        if (cut > LIMIT - 40) clipped = clipped.slice(0, cut);
+        clipped = clipped.replace(/[,.;:—-]$/, '') + '…';
+      }
+      const imgs = p.imgs || [];
+      const m = imgs.length ? this.mosaicFor(imgs) : { style:'', tiles:[] };
+      return {
+        ...p,
+        avatar: this.resolveImg(p.avatar),
+        commentsLabel: p.comments === 1 ? '1 comment' : (p.comments + ' comments'),
+        extra: p.isNew ? 'box-shadow:0 16px 30px -16px rgba(230,51,76,.45);animation:pjPostIn .5s ease' : '',
+        bodyText: clipped,
+        showMoreLink: long && !open,
+        onSeeMore: () => this.setState(st => ({ expanded: { ...st.expanded, [p.id]: true } })),
+        ctaConnect: p.cta === 'connect',
+        ctaMessage: p.cta === 'message',
+        ctaNone: !p.cta,
+        hasImgs: imgs.length > 0,
+        grid: m.style,
+        tiles: m.tiles.map((t, i) => ({ ...t, onOpen: () => this.setState({ jvOpen:true, jvPostId:p.id, jvIndex:i }) })),
+      };
+    });
+
+    // journey stepper state
+    const stepIndex = onCompose ? 1 : (s.refreshing ? 2 : (s.hasPosted ? 3 : 0));
+    const stepDefs = [
+      { num:'1', title:'Browse the feed', sub:'See what partners shared' },
+      { num:'2', title:'Create a post', sub:'Add a title & thoughts' },
+      { num:'3', title:'Hit Post', sub:'Publish to the feed' },
+      { num:'4', title:'Feed refreshes', sub:'Your post lands on top' },
+    ];
+    const steps = stepDefs.map((d, i) => {
+      const done = i < stepIndex;
+      const active = i === stepIndex;
+      return {
+        num: d.num,
+        title: d.title,
+        sub: d.sub,
+        isDone: done,
+        isActive: active,
+        isTodo: !done && !active,
+        bright: done || active,
+        dim: !done && !active,
+        lineDone: done,
+        lineTodo: !done,
+        hasLine: i < stepDefs.length - 1,
+      };
+    });
+
+    return {
+      onFeed, onCompose,
+      refreshing: s.refreshing,
+      posts,
+      steps,
+
+      openCompose: () => this.openCompose(),
+      closeCompose: () => this.closeCompose(),
+
+      title: s.title, desc: s.desc, hasImage: s.hasImage,
+      onTitle: e => this.setState({title: e.target.value}),
+      onDesc: e => this.setState({desc: e.target.value}),
+      addImage: () => this.addPhoto(),
+      removeImage: () => this.setState({hasImage:false}),
+      hasPicks: s.picks.length > 0,
+      pickGrid: pickMosaic.style,
+      pickTiles: pickMosaic.tiles.map((t, i) => ({ ...t, onRemove: () => this.removePhoto(i) })),
+      pickLabel: s.picks.length + (s.picks.length === 1 ? ' photo' : ' photos'),
+      pickThumbs: s.picks.map((src, i) => ({
+        src,
+        n: i + 1,
+        onDragStart: () => this.dragStart('picks', i),
+        onDragOver: e => this.dragOver(e),
+        onDrop: () => this.dropOn('picks', i),
+      })),
+      photoBtnLabel: s.picks.length ? ('Photo · ' + s.picks.length + '/6') : 'Photo',
+      canAddPick: s.picks.length < 6,
+      pickHint: 'Drag to reorder',
+
+      notifOpen: !!s.notifOpen,
+      openNotif: () => this.setState({ notifOpen: true }),
+      closeNotif: () => this.setState({ notifOpen: false }),
+
+      jvOpen: s.jvOpen,
+      jvAuthor: jvPost ? jvPost.author : '',
+      jvCaption: jvPost ? jvPost.title : '',
+      jvSrc: jvList[jvIdx] || '',
+      jvCounter: (jvIdx + 1) + ' of ' + Math.max(1, jvList.length),
+      jvHasPrev: jvIdx > 0,
+      jvHasNext: jvIdx < jvList.length - 1,
+      jvPrev: () => this.setState(st => ({ jvIndex: Math.max(0, st.jvIndex - 1) })),
+      jvNext: () => this.setState(st => ({ jvIndex: Math.min(jvList.length - 1, st.jvIndex + 1) })),
+      jvClose: () => this.setState({ jvOpen:false }),
+      jvThumbs: jvList.map((src, i) => ({
+        src,
+        onPick: () => this.setState({ jvIndex: i }),
+        ring: i === jvIdx ? 'box-shadow:0 0 0 2px #fff;' : '',
+        dim: i === jvIdx ? '' : 'opacity:.45;',
+      })),
+
+      postBg: canPost ? '#E6334C' : '#F0F1F4',
+      postFg: canPost ? '#fff' : '#B7BCC6',
+      postCursor: canPost ? 'pointer' : 'default',
+      onPost,
+
+      advancedOpen: s.advancedOpen,
+      openAdvanced: () => this.openAdvanced(),
+      closeAdvanced: () => this.closeAdvanced(),
+      transparent,
+      category: s.category, onCategory: e => this.setState({category: e.target.value}),
+      url: s.url, onUrl: e => this.setState({url: e.target.value}),
+      segmentList: this.SEGMENTS.map(n=>({ name:n, checked: !!s.segments[n], unchecked: !s.segments[n], onToggle: ()=>this.toggleSeg(n) })),
+      countryList: this.COUNTRIES.map(n=>({ name:n, checked: !!s.countries[n], unchecked: !s.countries[n], onToggle: ()=>this.toggleCtry(n) })),
+      segAllLabel: segAll ? 'Clear all' : 'Select all',
+      ctryAllLabel: ctryAll ? 'Clear all' : 'Select all',
+      selAllSeg: () => this.selAllSeg(),
+      selAllCtry: () => this.selAllCtry(),
+      willEmail,
+      recipientBanner: 'Will email ~' + fmt(recipients) + ' members across ' + selCtry.length + ' ' + (selCtry.length===1?'country':'countries'),
+      quotaBadge: s.blastsUsed + ' / ' + this.LIMIT,
+      quotaText: canEmail ? ('1 blast available · resets ' + resetDate) : ('Limit reached · resets ' + resetDate),
+      quotaBg: canEmail ? '#fff' : '#FFF4F0',
+      quotaBorder: canEmail ? '#E4E7EC' : '#F8D6CC',
+      quotaIcon: canEmail ? '#6B7480' : '#E6334C',
+      quotaTitleColor: canEmail ? '#16202E' : '#9A2417',
+      quotaSubColor: canEmail ? '#6B7480' : '#B5271A',
+      quotaBadgeBg: canEmail ? '#EAF6EF' : '#F7D9D3',
+      quotaBadgeColor: canEmail ? '#1F8A5B' : '#E6334C',
+
+      confirmOpen: s.confirmOpen,
+      cancelConfirm: () => this.setState({confirmOpen:false}),
+      confirmPublish: () => this.publish(true, recipients),
+      confirmBody: 'Your post goes live in the feed and an email copy is sent to every matching member. This uses your 1 email blast for the month and can’t be undone.',
+      segSummary: segAll ? 'All ('+selSeg.length+')' : (selSeg.length + ' selected'),
+      ctrySummary: ctryAll ? 'All ('+selCtry.length+')' : (selCtry.length + ' selected'),
+      recipientText: '~' + fmt(recipients),
+
+      feedRef: this.feedRef,
+      hasToast: s.toast.length>0, toast: s.toast,
+
+      ...this.multiVals(),
+    };
+  }
+}
+</script>
+</body>
+</html>
